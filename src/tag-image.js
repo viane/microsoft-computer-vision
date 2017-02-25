@@ -16,8 +16,7 @@ export default(_opt) => {
                 "headers": {
                     "Content-Type": "",
                     "Ocp-Apim-Subscription-Key": ""
-                },
-                resolveWithFullResponse: true
+                }
             };
             options.headers["Ocp-Apim-Subscription-Key"] = _opt["Ocp-Apim-Subscription-Key"];
             // check content type is either json, stream or form-data
@@ -37,7 +36,7 @@ export default(_opt) => {
             }
 
             rp(options).then(function(result) {
-                resolve(result);
+                resolve(JSON.parse(result));
             }).catch(function(err) {
                 throw err;
                 reject(err);

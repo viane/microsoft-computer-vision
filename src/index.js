@@ -8,5 +8,10 @@ exports.basic = () => {
 };
 
 exports.getTagFromImage = (_opt) => {
-    return tagImage(_opt)
+    if (_opt) {
+        return tagImage(_opt)
+    } else {
+        throw new Error("Require basic options, please reference: https://github.com/viane/microsoft-computer-vision/blob/master/README.md#tag-image");
+    }
+
 };
