@@ -3,8 +3,9 @@
 ## Usage
 
 ### Requirements
-* NPM
-* Git Client
+
+- NPM
+- Git Client
 
 ### Installation
 
@@ -16,4 +17,22 @@ npm install microsoft-computer-vision --save
 
 ```sh
 npm test
+```
+
+### API
+
+#### Tag-Image
+
+```sh
+getTagFromImage({
+  "Ocp-Apim-Subscription-Key": "your subscription key",
+  "content-type": "content type",
+  "url": "image url"
+}).then((respond)=>{
+  respond.json().then((result)=>{
+    //The result contains tags for the image
+  })
+}).catch((err)=>{
+  throw err
+})
 ```
