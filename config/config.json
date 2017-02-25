@@ -1,0 +1,15 @@
+{
+  "requestBaseURL":"https://westus.api.cognitive.microsoft.com/vision/v1.0",
+  "route":{
+    "Analyze-Image":"/analyze",
+    "Describe-Image":"/describe",
+    "Get-Thumbnail":"/generateThumbnail",
+    "List-Domain-Specific-Models":"/models",
+    "OCR":"/ocr",
+    "Recognize-Domain-Specific-Content":{
+      "route":"/models/{model}/analyze",
+      "model":"celebrities"
+    },
+    "Tag-Image":"/tag"
+  }
+}
