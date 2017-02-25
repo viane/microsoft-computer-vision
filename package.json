@@ -50,8 +50,9 @@
   "bugs": {
     "url": "https://github.com/viane/microsoft-computer-vision/issues"
   },
-  "homepage": "https://github.com/Beingbook/npm-module-template#readme",
+  "homepage": "https://github.com/viane/microsoft-computer-vision/blob/master/README.md",
   "directories": {
+    "doc": "docs",
     "test": "tests"
   },
   "dependencies": {
@@ -65,5 +66,6 @@
     "cognitive",
     "computer",
     "vision"
-  ]
+  ],
+  "description": ""
 }
