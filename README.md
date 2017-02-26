@@ -44,10 +44,11 @@ npm install microsoft-computer-vision --save
 
 > options
 
-```json
+```sh
   {
     //...
     "content-type": "application/json" /*or*/ "application/octet-stream"
+    //...
   }
 ```
 
