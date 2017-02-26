@@ -1,21 +1,44 @@
 # microsoft-computer-vision
 
-## Usage
+</br>
+### What does this library do? 
 
-## Requirements
+Extract rich information from images to categorize and process visual data—and protect your users from unwanted content.
 
-- NPM
-- Git Client
+</br>
 
-## Installation
+### Why I write it (why you might want to use it)?
 
-```javascript
+When me and my friends tried to use computer vision in a hackthon, the data parsing is painful and there is only one outdated npm library serves but has lot issues. Since Microsoft's solution is a plain frontend javascript which does the job but hard to use in production, also poorly documented. So I decided to write up this library for anyone who wants straight forward to use Computer Vision API without tuning options and formatting data .
+
+</br>
+
+### Installation
+
+```sh
 npm install microsoft-computer-vision --save
 ```
+</br>
+### Feature
 
-## API
+ - Promise based
+ - Easy function calls
+ - Use new end point of <b>westus.api.cognitive.microsoft.com/vision </b>instead of api.projectoxford.ai/vision
 
-### Analyze-Image
+</br>
+
+### API
+
+#### Analyze-Image
+
+</br>
+Description
+
+This operation extracts a rich set of visual features based on the image content. 
+
+Two input methods are supported -- (1) Uploading an image binray or (2) specifying an image URL. Within your request, there is an optional parameter to allow you to choose which features to return. By default, image categories are returned in the response. 
+
+</br>
 
 > Options
 
@@ -24,7 +47,7 @@ npm install microsoft-computer-vision --save
     "Ocp-Apim-Subscription-Key": "your subscription key",
     "visual-features":"Categories,Tags,Description,Faces,ImageType,Color,Adult", // Can be at least one or more, separated by comma
     "details" : "Celebrities", // Optional
-    "language" : "en" //or "cn", if not specified, library us "en" by default
+    "language" : "en" //or "cn", if not specified, library use "en" by default
     "content-type": "application/json",
     "url": "image_url"
           //or
@@ -107,7 +130,18 @@ fs.readFile('/tests/image/test.jpg', function(err, data) {
 });
 ```
 
-### Tag-Image
+</br>
+
+#### Tag-Image
+
+</br>
+Description
+
+This operation generates a list of words, or tags, that are relevant to the content of the supplied image. The Computer Vision API can return tags based on objects, living beings, scenery or actions found in images. Unlike categories, tags are not organized according to a hierarchical classification system, but correspond to image content. Tags may contain hints to avoid ambiguity or provide context, for example the tag “cello” may be accompanied by the hint “musical instrument”. All tags are in English. 
+
+Two input methods are supported -- (1) Uploading an image binary or (2) specifying an image URL.
+
+</br>
 
 > Options
 
@@ -126,7 +160,7 @@ fs.readFile('/tests/image/test.jpg', function(err, data) {
 > Function call
 
 ```javascript
-getImageTag({
+tagImage({
   "Ocp-Apim-Subscription-Key": "your subscription key",
   "content-type": "content type",
   "url": "image_url" //or "body": "image_binary"
@@ -143,7 +177,7 @@ getImageTag({
 
 ```javascript
 const microsofComputerVision = require("microsoft-computer-vision");
-microsofComputerVision.getImageTag({
+microsofComputerVision.tagImage({
   "Ocp-Apim-Subscription-Key": "A_Key",
   "content-type": "application/json",
   "url": "https://goo.gl/Hpz7gi"
@@ -170,7 +204,7 @@ microsofComputerVision.getImageTag({
 const microsofComputerVision = require("microsoft-computer-vision");
 
 fs.readFile('/tests/image/test.jpg', function(err, data) {
-    microsofComputerVision.getImageTag({
+    microsofComputerVision.tagImage({
       "Ocp-Apim-Subscription-Key": "A_Key",
       "content-type": "application/octet-stream",
       "body": data
@@ -191,8 +225,18 @@ fs.readFile('/tests/image/test.jpg', function(err, data) {
 });
 ```
 
-### Describe-Image
+</br>
 
+####Describe-Image
+
+</br>
+Description
+
+This operation generates a description of an image in human readable language with complete sentences. The description is based on a collection of content tags, which are also returned by the operation. More than one description can be generated for each image. Descriptions are ordered by their confidence score. All descriptions are in English. 
+
+Two input methods are supported -- (1) Uploading an image binary or (2) specifying an image URL.
+
+</br>
 > Options
 
 ```javascript
@@ -314,8 +358,18 @@ fs.readFile('/tests/image/test.jpg', function(err, data) {
 });
 ```
 
-### Image-Thumbnail
+</br>
 
+####Image-Thumbnail
+
+</br>
+Description
+
+This operation generates a thumbnail image with the user-specified width and height. By default, the service analyzes the image, identifies the region of interest (ROI), and generates smart cropping coordinates based on the ROI. Smart cropping helps when you specify an aspect ratio that differs from that of the input image
+
+A successful response contains the thumbnail image binary. If the request failed, the response contains an error code and a message to help determine what went wrong.
+
+</br>
 > Options
 
 ```javascript
@@ -401,8 +455,20 @@ fs.readFile('/tests/image/test.jpg', function(err, data) {
 });
 ```
 
-### ORC-Image
+</br>
 
+####ORC-Image
+
+</br>
+Description
+
+Optical Character Recognition (OCR) detects text in an image and extracts the recognized characters into a machine-usable character stream.
+
+Upon success, the OCR results will be returned.
+
+Two input methods are supported -- (1) Uploading an image binary or (2) specifying an image URL.
+
+</br>
 > Options
 
 ```javascript
@@ -544,8 +610,16 @@ fs.readFile('/tests/image/orcTest.jpg', function(err, data) {
 });
 ```
 
-### List Domain Specific Models
+</br>
 
+####List Domain Specific Models
+
+</br>
+Description
+
+TThis operation returns the list of domain-specific models that are supported by the Computer Vision API. Currently, the API only supports one domain-specific model: a celebrity recognizer. 
+
+</br>
 > Options
 
 ```javascript
@@ -590,8 +664,18 @@ microsofComputerVision.listDomainSpecificModels({
 })
 ```
 
-### Recognize Domain Specific Content
+</br>
 
+####Recognize Domain Specific Content
+
+</br>
+Description
+
+This operation recognizes content within an image by applying a domain-specific model. The list of domain-specific models that are supported by the Computer Vision API can be retrieved using the /models GET request. Currently, the API only provides a single domain-specific model: celebrities. 
+
+Two input methods are supported -- (1) Uploading an image binary or (2) specifying an image URL.
+
+</br>
 > Options
 
 ```javascript
