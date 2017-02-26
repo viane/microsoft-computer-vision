@@ -1,22 +1,21 @@
 {
   "name": "microsoft-computer-vision",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": "Xiaoyu Zhou <xiaoyuz2011@gmail.com>",
   "main": "./lib/index.js",
   "engines": {
-    "node": ">=5.0 <6",
-    "npm": ">=3.3 <4"
+    "node": ">=5.0 <6.10",
+    "npm": ">=3.3"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/viane/microsoft-computer-vision.git"
+    "url": "git+https://github.com/viane/microsoft-computer-vision.git",
+    "homepage": "https://github.com/viane/microsoft-computer-vision/blob/master/README.md"
   },
   "license": "MIT",
   "scripts": {
     "test": "mocha tests/* --timeout 10000 --compilers js:babel-register --require ./tests/helper.js --recursive",
     "start": "babel-node ./src/entry.js",
-    "lint": "eslint --ext .js ./",
-    "lint:fix": "npm run lint -- --fix",
     "build": "babel src --out-dir lib"
   },
   "babel": {
@@ -59,6 +58,7 @@
     "doc": "docs",
     "test": "tests"
   },
+  "readme": "README.md",
   "dependencies": {
     "bluebird": "^3.4.7",
     "chai-as-promised": "^6.0.0",
@@ -73,5 +73,5 @@
     "computer",
     "vision"
   ],
-  "description": ""
+  "description": "A simple but comprehensive NodeJS library for Microsoft Computer Vision API"
 }
