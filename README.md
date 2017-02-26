@@ -2,26 +2,54 @@
 
 ## Usage
 
-### Requirements
+## Requirements
 
 - NPM
 - Git Client
 
-### Installation
+## Installation
 
 ```sh
 npm install microsoft-computer-vision --save
 ```
 
-### Test
+## API
 
-```sh
-npm test
+### Analyze-Image
+
+> options
+
+```json
+
 ```
 
-### API
+> Function call
 
-#### Tag-Image
+```sh
+
+```
+> Example of passing image by URL
+
+```sh
+
+```
+
+> Example of passing image by binary
+
+```sh
+
+```
+
+### Tag-Image
+
+> options
+
+```json
+  {
+    //...
+    "content-type": "application/json" /*or*/ "application/octet-stream"
+  }
+```
 
 > Function call
 
