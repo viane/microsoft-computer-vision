@@ -3,6 +3,7 @@ import getAnalysisFromImage from './analyze-image';
 import getDescriptionFromImage from './describe-image';
 import getThumbnailFromImage from './get-thumbnail';
 import getORCFromImage from './orc';
+import getRDSC from './recognize-domain-specific-content';
 
 exports.analyzeImage = (_opt) => {
     if (_opt) {
@@ -43,6 +44,17 @@ exports.orcImage = (_opt) => {
     } else {
         return new Promise(function(resolve, reject) {
             const err = new Error("Require basic options, please reference: https://github.com/viane/microsoft-computer-vision/blob/master/README.md#orc-image");
+            reject(err);
+        });
+    }
+};
+
+exports.recognizeDomainSpecificContent = (_opt) => {
+    if (_opt) {
+        return getTagFromImage(_opt)
+    } else {
+        return new Promise(function(resolve, reject) {
+            const err = new Error("Require basic options, please reference: https://github.com/viane/microsoft-computer-vision/blob/master/README.md#describe-image");
             reject(err);
         });
     }

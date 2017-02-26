@@ -6,10 +6,7 @@
     "Get-Thumbnail":"/generateThumbnail",
     "List-Domain-Specific-Models":"/models",
     "OCR":"/ocr",
-    "Recognize-Domain-Specific-Content":{
-      "route":"/models/{model}/analyze",
-      "model":"celebrities"
-    },
+    "Recognize-Domain-Specific-Content":"/models/{model}/analyze",
     "Tag-Image":"/tag"
   }
 }

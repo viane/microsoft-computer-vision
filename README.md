@@ -406,7 +406,7 @@ fs.readFile('/tests/image/test.jpg', function(err, data) {
     "Ocp-Apim-Subscription-Key": "A_Key",
     "content-type": "application/json",
     "url": "image_url",
-    "language": "en", // Can be either one of the following
+    "language": "en", // Can be one of the following
                       // unk (AutoDetect)
                       // zh-Hans (ChineseSimplified)
                       // zh-Hant (ChineseTraditional)
@@ -460,7 +460,7 @@ microsofComputerVision.orcImage({
     "detect-orientation": true
 }).then((result)=>{
 
-  console.log(result);        // {
+  console.log(JSON.stringify(result));        // {
                               //     "language": "en",
                               //     "textAngle": 0,
                               //     "orientation": "Up",
@@ -506,7 +506,7 @@ fs.readFile('/tests/image/orcTest.jpg', function(err, data) {
       "content-type": "application/octet-stream",
       "body": data
     }).then((result) => {
-      console.log(result);        // {
+      console.log(JSON.stringify(result));        // {
                                   //     "language": "en",
                                   //     "textAngle": 0,
                                   //     "orientation": "Up",
@@ -538,3 +538,4 @@ fs.readFile('/tests/image/orcTest.jpg', function(err, data) {
     })
 });
 ```
+### Recognize Domain Specific Content
