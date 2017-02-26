@@ -160,3 +160,36 @@ describe('#orcImage()', () => {
         });
     });
 });
+
+describe('#recognizeDomainSpecificContent()', () => {
+    it('Should return the Optical Character Recognition of image URI', () => {
+
+        const result = microsofComputerVision.recognizeDomainSpecificContent({
+            "Ocp-Apim-Subscription-Key": "d3aa94c0d5c34fafb7b090079228ef33",
+            "content-type": "application/json",
+            "url": "http://d.ibtimes.co.uk/en/full/377533/bill-gates.jpg",
+            "model": "celebrities"
+        });
+        return expect(result).to.eventually.have.deep.property("result.celebrities");
+
+    });
+
+    it('Should return the Optical Character Recognition of image binary', () => {
+        const fs = require('fs');
+        const contentType = "application/octet-stream";
+        return fs.readFile('/tests/image/RDSCTest.jpg', function(err, data) {
+            if (err) {
+                throw err;
+            }
+
+            const result = microsofComputerVision.recognizeDomainSpecificContent({
+                "Ocp-Apim-Subscription-Key": "d3aa94c0d5c34fafb7b090079228ef33",
+                "content-type": "application/octet-stream",
+                "body": data,
+                "model": "celebrities"
+            });
+
+            return expect(result).to.eventually.have.deep.property("result.celebrities");
+        });
+    });
+});

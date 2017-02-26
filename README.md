@@ -20,7 +20,7 @@ npm install microsoft-computer-vision --save
 > Options
 
 ```javascript
-  {
+{
     "Ocp-Apim-Subscription-Key": "your subscription key",
     "visual-features":"Categories,Tags,Description,Faces,ImageType,Color,Adult", // Can be at least one or more, separated by comma
     "details" : "Celebrities", // Optional
@@ -49,6 +49,7 @@ getImageAnalysis({
   throw err;
 })
 ```
+
 > Example of passing image by URL
 
 ```javascript
@@ -111,7 +112,7 @@ fs.readFile('/tests/image/test.jpg', function(err, data) {
 > Options
 
 ```javascript
-  {
+{
     "Ocp-Apim-Subscription-Key": "your subscription key",
 
     "content-type": "application/json",
@@ -137,6 +138,7 @@ getImageTag({
   throw err;
 })
 ```
+
 > Example of passing image by URL
 
 ```javascript
@@ -194,7 +196,7 @@ fs.readFile('/tests/image/test.jpg', function(err, data) {
 > Options
 
 ```javascript
-  {
+{
     "Ocp-Apim-Subscription-Key": "your subscription key",
     "max-candidates":"1", // if not specified, library use 1 by default
     "content-type": "application/json",
@@ -221,6 +223,7 @@ describeImage({
   throw err;
 })
 ```
+
 > Example of passing image by URL
 
 ```javascript
@@ -316,7 +319,7 @@ fs.readFile('/tests/image/test.jpg', function(err, data) {
 > Options
 
 ```javascript
-  {
+{
     "Ocp-Apim-Subscription-Key": "your subscription key",
     "width": "100",
     "height": "100",
@@ -347,6 +350,7 @@ imageThumbnail({
   throw err;
 })
 ```
+
 > Example of passing image by URL
 
 ```javascript
@@ -402,33 +406,33 @@ fs.readFile('/tests/image/test.jpg', function(err, data) {
 > Options
 
 ```javascript
-  {
+{
     "Ocp-Apim-Subscription-Key": "A_Key",
     "content-type": "application/json",
     "url": "image_url",
-    "language": "en", // Can be one of the following
-                      // unk (AutoDetect)
-                      // zh-Hans (ChineseSimplified)
-                      // zh-Hant (ChineseTraditional)
-                      // cs (Czech)
-                      // da (Danish)
-                      // nl (Dutch)
-                      // en (English)
-                      // fi (Finnish)
-                      // fr (French)
-                      // de (German)
-                      // el (Greek)
-                      // hu (Hungarian)
-                      // it (Italian)
-                      // Ja (Japanese)
-                      // ko (Korean)
-                      // nb (Norwegian)
-                      // pl (Polish)
-                      // pt (Portuguese,
-                      // ru (Russian)
-                      // es (Spanish)
-                      // sv (Swedish)
-                      // tr (Turkish)
+    "language": "{language}", // Can be one of the following
+                              // unk (AutoDetect)
+                              // zh-Hans (ChineseSimplified)
+                              // zh-Hant (ChineseTraditional)
+                              // cs (Czech)
+                              // da (Danish)
+                              // nl (Dutch)
+                              // en (English)
+                              // fi (Finnish)
+                              // fr (French)
+                              // de (German)
+                              // el (Greek)
+                              // hu (Hungarian)
+                              // it (Italian)
+                              // Ja (Japanese)
+                              // ko (Korean)
+                              // nb (Norwegian)
+                              // pl (Polish)
+                              // pt (Portuguese,
+                              // ru (Russian)
+                              // es (Spanish)
+                              // sv (Swedish)
+                              // tr (Turkish)
     "detect-orientation": true // optional
   }
 ```
@@ -440,7 +444,7 @@ orcImage({
     "Ocp-Apim-Subscription-Key": "A_Key",
     "content-type": "application/json",
     "url": "image_url",
-    "language": "en",
+    "language": "{language}",
     "detect-orientation": true
 }).then((result)=>{
     // ORC are now in the result
@@ -448,6 +452,7 @@ orcImage({
   throw err;
 })
 ```
+
 > Example of passing image by URL
 
 ```javascript
@@ -538,4 +543,112 @@ fs.readFile('/tests/image/orcTest.jpg', function(err, data) {
     })
 });
 ```
+
 ### Recognize Domain Specific Content
+
+> Options
+
+```javascript
+{
+    "Ocp-Apim-Subscription-Key": "A_Key",
+    "content-type": "application/json",
+    "url": "image_url",
+    "model": "{model}" // use listDomainSpecificModels() to get current available models
+  }
+```
+
+> Function call
+
+```javascript
+recognizeDomainSpecificContent({
+    "Ocp-Apim-Subscription-Key": "A_Key",
+    "content-type": "application/json",
+    "url": "image_url",
+    "model": "{model}"
+}).then((result)=>{
+    // ORC are now in the result
+}).catch((err)=>{
+  throw err;
+})
+```
+
+> Example of passing image by URL
+
+```javascript
+const microsofComputerVision = require("microsoft-computer-vision");
+microsofComputerVision.recognizeDomainSpecificContent({
+    "Ocp-Apim-Subscription-Key": "A_Key",
+    "content-type": "application/json",
+    "url": "http://d.ibtimes.co.uk/en/full/377533/bill-gates.jpg",
+    "model": "celebrities"
+}).then((result)=>{
+
+  console.log(JSON.stringify(result));      //   {
+                                            //     "requestId": "055c5645-3ec0-4dc9-9da8-98d62a28a7c2",
+                                            //     "metadata": {
+                                            //         "width": 620,
+                                            //         "height": 414,
+                                            //         "format": "Jpeg"
+                                            //     },
+                                            //     "result": {
+                                            //         "celebrities": [
+                                            //             {
+                                            //                 "name": "Bill Gates",
+                                            //                 "faceRectangle": {
+                                            //                     "left": 184,
+                                            //                     "top": 80,
+                                            //                     "width": 153,
+                                            //                     "height": 153
+                                            //                 },
+                                            //                 "confidence": 0.9999932
+                                            //             }
+                                            //         ]
+                                            //     }
+                                            // }
+}).catch((err)=>{
+  throw err;
+})
+```
+
+> Example of passing image by binary
+
+```javascript
+// Suppose you want get ORC analysis for /tests/image/RDSCTest.jpg
+
+const microsofComputerVision = require("microsoft-computer-vision");
+
+fs.readFile('/tests/image/RDSCTest.jpg', function(err, data) {
+    microsofComputerVision.imageThumbnail({
+      "Ocp-Apim-Subscription-Key": "A_Key",
+      "model": "celebrities",
+      "content-type": "application/octet-stream",
+      "body": data
+    }).then((result) => {
+      console.log(JSON.stringify(result));      //   {
+                                                //     "requestId": "055c5645-3ec0-4dc9-9da8-98d62a28a7c2",
+                                                //     "metadata": {
+                                                //         "width": 620,
+                                                //         "height": 414,
+                                                //         "format": "Jpeg"
+                                                //     },
+                                                //     "result": {
+                                                //         "celebrities": [
+                                                //             {
+                                                //                 "name": "Bill Gates",
+                                                //                 "faceRectangle": {
+                                                //                     "left": 184,
+                                                //                     "top": 80,
+                                                //                     "width": 153,
+                                                //                     "height": 153
+                                                //                 },
+                                                //                 "confidence": 0.9999932
+                                                //             }
+                                                //         ]
+                                                //     }
+                                                // }
+  }
+    }).catch((err)=>{
+      throw err;
+    })
+});
+```

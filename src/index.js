@@ -51,10 +51,10 @@ exports.orcImage = (_opt) => {
 
 exports.recognizeDomainSpecificContent = (_opt) => {
     if (_opt) {
-        return getTagFromImage(_opt)
+        return getRDSC(_opt)
     } else {
         return new Promise(function(resolve, reject) {
-            const err = new Error("Require basic options, please reference: https://github.com/viane/microsoft-computer-vision/blob/master/README.md#describe-image");
+            const err = new Error("Require basic options, please reference: https://github.com/viane/microsoft-computer-vision#recognize-domain-specific-content");
             reject(err);
         });
     }
