@@ -2,7 +2,6 @@
 
 const rp = require('request-promise');
 const loadJsonFile = require('load-json-file');
-const appRoot = require('app-root-path');
 
 export default(_opt) => {
 
@@ -23,9 +22,8 @@ export default(_opt) => {
           reject(err);
         }
 
-        loadJsonFile(appRoot + '/config/config.json').then(config => {
 
-            let uri = config.requestBaseURL + config.route["Get-Thumbnail"] + "?width=" + _opt.width + "&height=" + _opt.height;
+            let uri = "https://westus.api.cognitive.microsoft.com/vision/v1.0" + "/generateThumbnail" + "?width=" + _opt.width + "&height=" + _opt.height;
 
             if (_opt["smart-cropping"]) {
                 uri += "&smartCropping=" + _opt["smart-cropping"];
@@ -74,6 +72,5 @@ export default(_opt) => {
 
         });
 
-    });
 
 };

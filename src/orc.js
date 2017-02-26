@@ -2,7 +2,6 @@
 
 const rp = require('request-promise');
 const loadJsonFile = require('load-json-file');
-const appRoot = require('app-root-path');
 
 export default(_opt) => {
 
@@ -18,9 +17,9 @@ export default(_opt) => {
 
 
 
-        loadJsonFile(appRoot + '/config/config.json').then(config => {
 
-            let uri = config.requestBaseURL + config.route["OCR"]+"?language="+_opt.language;
+
+            let uri = "https://westus.api.cognitive.microsoft.com/vision/v1.0" + "/ocr"+"?language="+_opt.language;
 
             if (_opt["detect-orientation"]) {
               uri += "&detectOrientation=true";
@@ -69,6 +68,5 @@ export default(_opt) => {
 
         });
 
-    });
 
 };

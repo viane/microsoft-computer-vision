@@ -6,14 +6,15 @@ chai.use(require('chai-fs'));
 const expect = chai.expect;
 const assert = chai.assert;
 const appRoot = require('app-root-path');
-const fs =require('fs');
+const fs = require('fs');
+const myKey = "";
 
 describe('#tagImage()', () => {
     it('Should return an array of tags by image URI', () => {
         const imageUrl = "https://www.smashingmagazine.com/wp-content/uploads/2016/01/07-responsive-image-example-castle-7-opt.jpg";
         const contentType = "application/json";
 
-        const result = microsofComputerVision.tagImage({"Ocp-Apim-Subscription-Key": "d3aa94c0d5c34fafb7b090079228ef33", "content-type": contentType, "url": imageUrl});
+        const result = microsofComputerVision.tagImage({"Ocp-Apim-Subscription-Key": myKey, "content-type": contentType, "url": imageUrl});
 
         return expect(result).to.eventually.have.property("tags");
     });
@@ -26,7 +27,7 @@ describe('#tagImage()', () => {
                 throw err;
             }
 
-            const result = microsofComputerVision.tagImage({"Ocp-Apim-Subscription-Key": "d3aa94c0d5c34fafb7b090079228ef33", "content-type": contentType, "url": data});
+            const result = microsofComputerVision.tagImage({"Ocp-Apim-Subscription-Key": myKey, "content-type": contentType, "url": data});
 
             return expect(result).to.eventually.have.property("tags");
         })
@@ -39,7 +40,7 @@ describe('#analyzeImage()', () => {
     it('Should return an array of faces by image URI', () => {
         const imageUrl = "https://www.smashingmagazine.com/wp-content/uploads/2016/01/07-responsive-image-example-castle-7-opt.jpg";
 
-        const result = microsofComputerVision.analyzeImage({"Ocp-Apim-Subscription-Key": "d3aa94c0d5c34fafb7b090079228ef33", "content-type": "application/json", "url": imageUrl, "visual-features": "Faces"});
+        const result = microsofComputerVision.analyzeImage({"Ocp-Apim-Subscription-Key": myKey, "content-type": "application/json", "url": imageUrl, "visual-features": "Faces"});
 
         return expect(result).to.eventually.have.property("faces");
     });
@@ -52,7 +53,7 @@ describe('#analyzeImage()', () => {
                 throw err;
             }
 
-            const result = microsofComputerVision.analyzeImage({"Ocp-Apim-Subscription-Key": "d3aa94c0d5c34fafb7b090079228ef33", "content-type": "application/octet-stream", "body": data, "visual-features": "Faces"});
+            const result = microsofComputerVision.analyzeImage({"Ocp-Apim-Subscription-Key": myKey, "content-type": "application/octet-stream", "body": data, "visual-features": "Faces"});
 
             return expect(result).to.eventually.have.property("faces");
         })
@@ -65,7 +66,7 @@ describe('#describeImage()', () => {
     it('Should return a description of image URI', () => {
         const imageUrl = "https://www.smashingmagazine.com/wp-content/uploads/2016/01/07-responsive-image-example-castle-7-opt.jpg";
 
-        const result = microsofComputerVision.describeImage({"Ocp-Apim-Subscription-Key": "d3aa94c0d5c34fafb7b090079228ef33", "content-type": "application/json", "url": imageUrl, "max-candidates": "2"});
+        const result = microsofComputerVision.describeImage({"Ocp-Apim-Subscription-Key": myKey, "content-type": "application/json", "url": imageUrl, "max-candidates": "2"});
 
         return expect(result).to.eventually.have.property("description");
     });
@@ -78,7 +79,7 @@ describe('#describeImage()', () => {
                 throw err;
             }
 
-            const result = microsofComputerVision.describeImage({"Ocp-Apim-Subscription-Key": "d3aa94c0d5c34fafb7b090079228ef33", "content-type": "application/octet-stream", "body": data, "max-candidates": "2"});
+            const result = microsofComputerVision.describeImage({"Ocp-Apim-Subscription-Key": myKey, "content-type": "application/octet-stream", "body": data, "max-candidates": "2"});
 
             return expect(result).to.eventually.have.property("description");
         })
@@ -92,7 +93,7 @@ describe('#imageThumbnail()', () => {
         const imageUrl = "https://www.smashingmagazine.com/wp-content/uploads/2016/01/07-responsive-image-example-castle-7-opt.jpg";
 
         const result = microsofComputerVision.imageThumbnail({
-            "Ocp-Apim-Subscription-Key": "d3aa94c0d5c34fafb7b090079228ef33",
+            "Ocp-Apim-Subscription-Key": myKey,
             "content-type": "application/json",
             "url": imageUrl,
             "width": "100",
@@ -112,7 +113,7 @@ describe('#imageThumbnail()', () => {
             }
 
             const result = microsofComputerVision.imageThumbnail({
-                "Ocp-Apim-Subscription-Key": "d3aa94c0d5c34fafb7b090079228ef33",
+                "Ocp-Apim-Subscription-Key": myKey,
                 "content-type": "application/octet-stream",
                 "body": data,
                 "width": "100",
@@ -130,7 +131,7 @@ describe('#orcImage()', () => {
         const imageUrl = "https://www.smashingmagazine.com/wp-content/uploads/2016/01/07-responsive-image-example-castle-7-opt.jpg";
 
         const result = microsofComputerVision.orcImage({
-            "Ocp-Apim-Subscription-Key": "d3aa94c0d5c34fafb7b090079228ef33",
+            "Ocp-Apim-Subscription-Key": myKey,
             "content-type": "application/json",
             "url": "http://cdn.quotesgram.com/img/81/49/660235022-Random-Funny-Quotes-.jpg",
             "language": "en",
@@ -149,7 +150,7 @@ describe('#orcImage()', () => {
             }
 
             const result = microsofComputerVision.orcImage({
-                "Ocp-Apim-Subscription-Key": "d3aa94c0d5c34fafb7b090079228ef33",
+                "Ocp-Apim-Subscription-Key": myKey,
                 "content-type": "application/octet-stream",
                 "body": data,
                 "language": "en",
@@ -165,7 +166,7 @@ describe('#listDomainSpecificModels()', () => {
     it('Should return the available models', () => {
 
         const result = microsofComputerVision.listDomainSpecificModels({
-            "Ocp-Apim-Subscription-Key": "d3aa94c0d5c34fafb7b090079228ef33"
+            "Ocp-Apim-Subscription-Key": myKey
         });
 
         return expect(result).to.eventually.have.deep.property("models");
@@ -177,7 +178,7 @@ describe('#recognizeDomainSpecificContent()', () => {
     it('Should return the Optical Character Recognition of image URI', () => {
 
         const result = microsofComputerVision.recognizeDomainSpecificContent({
-            "Ocp-Apim-Subscription-Key": "d3aa94c0d5c34fafb7b090079228ef33",
+            "Ocp-Apim-Subscription-Key": myKey,
             "content-type": "application/json",
             "url": "http://d.ibtimes.co.uk/en/full/377533/bill-gates.jpg",
             "model": "celebrities"
@@ -195,7 +196,7 @@ describe('#recognizeDomainSpecificContent()', () => {
             }
 
             const result = microsofComputerVision.recognizeDomainSpecificContent({
-                "Ocp-Apim-Subscription-Key": "d3aa94c0d5c34fafb7b090079228ef33",
+                "Ocp-Apim-Subscription-Key": myKey,
                 "content-type": "application/octet-stream",
                 "body": data,
                 "model": "celebrities"

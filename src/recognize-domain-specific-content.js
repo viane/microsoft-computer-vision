@@ -2,7 +2,6 @@
 
 const rp = require('request-promise');
 const loadJsonFile = require('load-json-file');
-const appRoot = require('app-root-path');
 
 export default(_opt) => {
 
@@ -18,9 +17,8 @@ export default(_opt) => {
           reject(err);
         }
 
-        loadJsonFile(appRoot + '/config/config.json').then(config => {
 
-            let uri = config.requestBaseURL + config.route["Recognize-Domain-Specific-Content"];
+            let uri = "https://westus.api.cognitive.microsoft.com/vision/v1.0" + "/models/{model}/analyze";
             uri = uri.replace("{model}", _opt.model);
             let options = {
                 "uri": uri,
@@ -65,6 +63,5 @@ export default(_opt) => {
 
         });
 
-    });
 
 };

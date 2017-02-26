@@ -2,7 +2,6 @@
 
 const rp = require('request-promise');
 const loadJsonFile = require('load-json-file');
-const appRoot = require('app-root-path');
 
 export default(_opt) => {
 
@@ -16,9 +15,8 @@ export default(_opt) => {
 
         }
 
-        loadJsonFile(appRoot + '/config/config.json').then(config => {
 
-            const uri = config.requestBaseURL + config.route["Describe-Image"]+"?maxCandidates="+_opt["max-candidates"];
+            const uri = "https://westus.api.cognitive.microsoft.com/vision/v1.0" + "/describe"+"?maxCandidates="+_opt["max-candidates"];
 
             let options = {
                 "uri": uri,
@@ -61,7 +59,6 @@ export default(_opt) => {
 
             }).done();
 
-        });
 
     });
 
