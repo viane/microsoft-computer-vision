@@ -2,6 +2,7 @@ import getTagFromImage from './tag-image';
 import getAnalysisFromImage from './analyze-image';
 import getDescriptionFromImage from './describe-image';
 import getThumbnailFromImage from './get-thumbnail';
+import getORCFromImage from './orc';
 
 exports.analyzeImage = (_opt) => {
     if (_opt) {
@@ -31,6 +32,17 @@ exports.imageThumbnail = (_opt) => {
     } else {
         return new Promise(function(resolve, reject) {
             const err = new Error("Require basic options, please reference: https://github.com/viane/microsoft-computer-vision/blob/master/README.md#image-thumbnail");
+            reject(err);
+        });
+    }
+};
+
+exports.orcImage = (_opt) => {
+    if (_opt) {
+        return getORCFromImage(_opt)
+    } else {
+        return new Promise(function(resolve, reject) {
+            const err = new Error("Require basic options, please reference: https://github.com/viane/microsoft-computer-vision/blob/master/README.md#orc-image");
             reject(err);
         });
     }

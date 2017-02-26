@@ -396,3 +396,145 @@ fs.readFile('/tests/image/test.jpg', function(err, data) {
     })
 });
 ```
+
+### ORC-Image
+
+> Options
+
+```javascript
+  {
+    "Ocp-Apim-Subscription-Key": "A_Key",
+    "content-type": "application/json",
+    "url": "image_url",
+    "language": "en", // Can be either one of the following
+                      // unk (AutoDetect)
+                      // zh-Hans (ChineseSimplified)
+                      // zh-Hant (ChineseTraditional)
+                      // cs (Czech)
+                      // da (Danish)
+                      // nl (Dutch)
+                      // en (English)
+                      // fi (Finnish)
+                      // fr (French)
+                      // de (German)
+                      // el (Greek)
+                      // hu (Hungarian)
+                      // it (Italian)
+                      // Ja (Japanese)
+                      // ko (Korean)
+                      // nb (Norwegian)
+                      // pl (Polish)
+                      // pt (Portuguese,
+                      // ru (Russian)
+                      // es (Spanish)
+                      // sv (Swedish)
+                      // tr (Turkish)
+    "detect-orientation": true // optional
+  }
+```
+
+> Function call
+
+```javascript
+orcImage({
+    "Ocp-Apim-Subscription-Key": "A_Key",
+    "content-type": "application/json",
+    "url": "image_url",
+    "language": "en",
+    "detect-orientation": true
+}).then((result)=>{
+    // ORC are now in the result
+}).catch((err)=>{
+  throw err;
+})
+```
+> Example of passing image by URL
+
+```javascript
+const microsofComputerVision = require("microsoft-computer-vision");
+microsofComputerVision.orcImage({
+    "Ocp-Apim-Subscription-Key": "A_Key",
+    "content-type": "application/json",
+    "url": "http://cdn.quotesgram.com/img/81/49/660235022-Random-Funny-Quotes-.jpg",
+    "language": "en",
+    "detect-orientation": true
+}).then((result)=>{
+
+  console.log(result);        // {
+                              //     "language": "en",
+                              //     "textAngle": 0,
+                              //     "orientation": "Up",
+                              //     "regions": [
+                              //         {
+                              //             "boundingBox": "7,55,605,387",
+                              //             "lines": [
+                              //                 {
+                              //                     "boundingBox": "7,55,603,65",
+                              //                     "words": [
+                              //                         {
+                              //                             "boundingBox": "7,59,291,61",
+                              //                             "text": "HOME:"
+                              //                         },
+                              //                         {
+                              //                             "boundingBox": "326,55,284,65",
+                              //                             "text": "Where"
+                              //                         }
+                              //                     ]
+                              //                 },
+                              //                 ...
+                              //             ]
+                              //         }
+                              //     ]
+                              // }
+}).catch((err)=>{
+  throw err;
+})
+```
+
+> Example of passing image by binary
+
+```javascript
+// Suppose you want get ORC analysis for /tests/image/orcTest.jpg
+
+const microsofComputerVision = require("microsoft-computer-vision");
+
+fs.readFile('/tests/image/orcTest.jpg', function(err, data) {
+    microsofComputerVision.imageThumbnail({
+      "Ocp-Apim-Subscription-Key": "A_Key",
+      "language": "en",
+      "detect-orientation": true,
+      "content-type": "application/octet-stream",
+      "body": data
+    }).then((result) => {
+      console.log(result);        // {
+                                  //     "language": "en",
+                                  //     "textAngle": 0,
+                                  //     "orientation": "Up",
+                                  //     "regions": [
+                                  //         {
+                                  //             "boundingBox": "7,55,605,387",
+                                  //             "lines": [
+                                  //                 {
+                                  //                     "boundingBox": "7,55,603,65",
+                                  //                     "words": [
+                                  //                         {
+                                  //                             "boundingBox": "7,59,291,61",
+                                  //                             "text": "HOME:"
+                                  //                         },
+                                  //                         {
+                                  //                             "boundingBox": "326,55,284,65",
+                                  //                             "text": "Where"
+                                  //                         }
+                                  //                     ]
+                                  //                 },
+                                  //                 ...
+                                  //             ]
+                                  //         }
+                                  //     ]
+                                  // }
+  }
+    }).catch((err)=>{
+      throw err;
+    })
+});
+```

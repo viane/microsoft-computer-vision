@@ -124,3 +124,39 @@ describe('#imageThumbnail()', () => {
         });
     });
 });
+
+describe('#orcImage()', () => {
+    it('Should return the Optical Character Recognition of image URI', () => {
+        const imageUrl = "https://www.smashingmagazine.com/wp-content/uploads/2016/01/07-responsive-image-example-castle-7-opt.jpg";
+
+        const result = microsofComputerVision.orcImage({
+            "Ocp-Apim-Subscription-Key": "d3aa94c0d5c34fafb7b090079228ef33",
+            "content-type": "application/json",
+            "url": "http://cdn.quotesgram.com/img/81/49/660235022-Random-Funny-Quotes-.jpg",
+            "language": "en",
+            "detect-orientation": true
+        });
+        return expect(result).to.eventually.have.property("regions");
+
+    });
+
+    it('Should return the Optical Character Recognition of image binary', () => {
+        const fs = require('fs');
+        const contentType = "application/octet-stream";
+        return fs.readFile('/tests/image/orcTest.jpg', function(err, data) {
+            if (err) {
+                throw err;
+            }
+
+            const result = microsofComputerVision.orcImage({
+                "Ocp-Apim-Subscription-Key": "d3aa94c0d5c34fafb7b090079228ef33",
+                "content-type": "application/octet-stream",
+                "body": data,
+                "language": "en",
+                "detect-orientation": true
+            });
+
+            return expect(result).to.eventually.have.property("regions");
+        });
+    });
+});

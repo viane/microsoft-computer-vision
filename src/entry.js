@@ -122,3 +122,34 @@ const imageUrl = "https://goo.gl/Hpz7gi";
 //         throw err;
 //     })
 // });
+
+////////////////////////////////////////
+// Get image orc by url
+////////////////////////////////////////
+
+// microsofComputerVision.orcImage({
+//     "Ocp-Apim-Subscription-Key": "d3aa94c0d5c34fafb7b090079228ef33",
+//     "content-type": "application/json",
+//     "url": "http://cdn.quotesgram.com/img/81/49/660235022-Random-Funny-Quotes-.jpg",
+//     "language": "en",
+//     "detect-orientation": true
+// }).then((result) => {
+//     console.log(JSON.stringify(result,'\t',4));
+// }).catch((err) => {
+//     throw err;
+// })
+
+////////////////////////////////////////
+// Get image orc by file
+////////////////////////////////////////
+//
+// fs.readFile(appRoot + '/tests/image/orcTest.jpg', function(err, data) {
+//     if (err)
+//         throw err;
+//
+//     microsofComputerVision.orcImage({"Ocp-Apim-Subscription-Key": "d3aa94c0d5c34fafb7b090079228ef33", "content-type": "application/octet-stream", "body": data, "language": "en", "detect-orientation": true}).then((result) => {
+//         console.log(JSON.stringify(result, '\t', 4));
+//     }).catch((err) => {
+//         throw err;
+//     })
+// });
