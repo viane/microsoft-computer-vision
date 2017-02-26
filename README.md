@@ -1,7 +1,14 @@
 # microsoft-computer-vision
 
+[![GitHub issues](https://img.shields.io/github/issues/viane/microsoft-computer-vision.svg)](https://github.com/viane/microsoft-computer-vision/issues)
+
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/viane/microsoft-computer-vision/master/LICENSE)
+
+[![GitHub license](https://img.shields.io/badge/build-pass-green.svg)](https://github.com/viane/microsoft-computer-vision/tree/master/tests)
+
+
 </br>
-### What does this library do? 
+### What does this library do?
 
 Extract rich information from images to categorize and process visual data—and protect your users from unwanted content.
 
@@ -34,9 +41,9 @@ npm install microsoft-computer-vision --save
 </br>
 Description
 
-This operation extracts a rich set of visual features based on the image content. 
+This operation extracts a rich set of visual features based on the image content.
 
-Two input methods are supported -- (1) Uploading an image binray or (2) specifying an image URL. Within your request, there is an optional parameter to allow you to choose which features to return. By default, image categories are returned in the response. 
+Two input methods are supported -- (1) Uploading an image binray or (2) specifying an image URL. Within your request, there is an optional parameter to allow you to choose which features to return. By default, image categories are returned in the response.
 
 </br>
 
@@ -137,7 +144,7 @@ fs.readFile('/tests/image/test.jpg', function(err, data) {
 </br>
 Description
 
-This operation generates a list of words, or tags, that are relevant to the content of the supplied image. The Computer Vision API can return tags based on objects, living beings, scenery or actions found in images. Unlike categories, tags are not organized according to a hierarchical classification system, but correspond to image content. Tags may contain hints to avoid ambiguity or provide context, for example the tag “cello” may be accompanied by the hint “musical instrument”. All tags are in English. 
+This operation generates a list of words, or tags, that are relevant to the content of the supplied image. The Computer Vision API can return tags based on objects, living beings, scenery or actions found in images. Unlike categories, tags are not organized according to a hierarchical classification system, but correspond to image content. Tags may contain hints to avoid ambiguity or provide context, for example the tag “cello” may be accompanied by the hint “musical instrument”. All tags are in English.
 
 Two input methods are supported -- (1) Uploading an image binary or (2) specifying an image URL.
 
@@ -232,7 +239,7 @@ fs.readFile('/tests/image/test.jpg', function(err, data) {
 </br>
 Description
 
-This operation generates a description of an image in human readable language with complete sentences. The description is based on a collection of content tags, which are also returned by the operation. More than one description can be generated for each image. Descriptions are ordered by their confidence score. All descriptions are in English. 
+This operation generates a description of an image in human readable language with complete sentences. The description is based on a collection of content tags, which are also returned by the operation. More than one description can be generated for each image. Descriptions are ordered by their confidence score. All descriptions are in English.
 
 Two input methods are supported -- (1) Uploading an image binary or (2) specifying an image URL.
 
@@ -617,7 +624,7 @@ fs.readFile('/tests/image/orcTest.jpg', function(err, data) {
 </br>
 Description
 
-TThis operation returns the list of domain-specific models that are supported by the Computer Vision API. Currently, the API only supports one domain-specific model: a celebrity recognizer. 
+TThis operation returns the list of domain-specific models that are supported by the Computer Vision API. Currently, the API only supports one domain-specific model: a celebrity recognizer.
 
 </br>
 > Options
@@ -671,7 +678,7 @@ microsofComputerVision.listDomainSpecificModels({
 </br>
 Description
 
-This operation recognizes content within an image by applying a domain-specific model. The list of domain-specific models that are supported by the Computer Vision API can be retrieved using the /models GET request. Currently, the API only provides a single domain-specific model: celebrities. 
+This operation recognizes content within an image by applying a domain-specific model. The list of domain-specific models that are supported by the Computer Vision API can be retrieved using the /models GET request. Currently, the API only provides a single domain-specific model: celebrities.
 
 Two input methods are supported -- (1) Uploading an image binary or (2) specifying an image URL.
 
