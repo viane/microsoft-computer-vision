@@ -1,6 +1,7 @@
 import getTagFromImage from './tag-image';
 import getAnalysisFromImage from './analyze-image';
 import getDescriptionFromImage from './describe-image';
+import getThumbnailFromImage from './get-thumbnail';
 
 exports.analyzeImage = (_opt) => {
     if (_opt) {
@@ -24,12 +25,23 @@ exports.describeImage = (_opt) => {
     }
 };
 
+exports.imageThumbnail = (_opt) => {
+    if (_opt) {
+        return getThumbnailFromImage(_opt)
+    } else {
+        return new Promise(function(resolve, reject) {
+            const err = new Error("Require basic options, please reference: https://github.com/viane/microsoft-computer-vision/blob/master/README.md#image-thumbnail");
+            reject(err);
+        });
+    }
+};
+
 exports.tagImage = (_opt) => {
     if (_opt) {
         return getTagFromImage(_opt)
     } else {
         return new Promise(function(resolve, reject) {
-            const err = new Error("Require basic options, please reference: https://github.com/viane/microsoft-computer-vision/blob/master/README.md#tag-image");
+            const err = new Error("Require basic options, please reference: https://github.com/viane/microsoft-computer-vision/blob/master/README.md#describe-image");
             reject(err);
         });
     }

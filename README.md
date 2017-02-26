@@ -310,3 +310,89 @@ fs.readFile('/tests/image/test.jpg', function(err, data) {
     })
 });
 ```
+
+### Image-Thumbnail
+
+> Options
+
+```javascript
+  {
+    "Ocp-Apim-Subscription-Key": "your subscription key",
+    "width": "100",
+    "height": "100",
+    "smart-cropping": true // optional
+    "content-type": "application/json",
+    "url": "image_url"
+          //or
+    "content-type": "application/octet-stream",
+    "body": "image_binary"
+  }
+```
+
+> Function call
+
+```javascript
+imageThumbnail({
+  "Ocp-Apim-Subscription-Key": "your subscription key",
+  "width": "100",
+  "height": "100",
+  "smart-cropping": true
+  "content-type": "content type",
+  "url": "image_url" //or "body": "image_binary"
+}).then((result)=>{
+
+  // the tags are now in the result
+
+}).catch((err)=>{
+  throw err;
+})
+```
+> Example of passing image by URL
+
+```javascript
+const microsofComputerVision = require("microsoft-computer-vision");
+microsofComputerVision.imageThumbnail({
+  "Ocp-Apim-Subscription-Key": "A_Key",
+  "width": "100",
+  "height": "100",
+  "smart-cropping": true
+  "content-type": "application/json",
+  "url": "https://goo.gl/Hpz7gi"
+}).then((thumbnailBinary)=>{
+    // Do something to the binary
+    fs.writeFile('/thumbnail.jpg', thumbnailBinary, 'binary', function(err) {
+        if (err)
+            throw err
+    })
+}).catch((err)=>{
+  throw err;
+})
+```
+
+> Example of passing image by binary
+
+```javascript
+// Suppose you want get a 100x100 thumbnail for /tests/image/test.jpg
+
+const microsofComputerVision = require("microsoft-computer-vision");
+
+fs.readFile('/tests/image/test.jpg', function(err, data) {
+    microsofComputerVision.imageThumbnail({
+      "Ocp-Apim-Subscription-Key": "A_Key",
+      "width": "100",
+      "height": "100",
+      "smart-cropping": true
+      "content-type": "application/octet-stream",
+      "body": data
+    }).then((thumbnailBinary) => {
+      // Do something to the binary
+      fs.writeFile('/thumbnail.jpg', thumbnailBinary, 'binary', function(err) {
+          if (err)
+              throw err
+      })
+  }
+    }).catch((err)=>{
+      throw err;
+    })
+});
+```

@@ -3,7 +3,6 @@ import microsofComputerVision from './index';
 const appRoot = require("app-root-path");
 const fs = require("fs");
 const FormData = require('form-data');
-
 const imageUrl = "https://goo.gl/Hpz7gi";
 
 // ////////////////////////////////////////
@@ -58,7 +57,6 @@ const imageUrl = "https://goo.gl/Hpz7gi";
 // Describe image by url
 ////////////////////////////////////////
 
-
 // microsofComputerVision.describeImage({"Ocp-Apim-Subscription-Key": "d3aa94c0d5c34fafb7b090079228ef33", "content-type": "application/json", "url": imageUrl,"max-candidates":"2"}).then((result) => {
 //     console.log(result);
 // }).catch((err)=>{
@@ -69,13 +67,58 @@ const imageUrl = "https://goo.gl/Hpz7gi";
 // Describe image by file
 ////////////////////////////////////////
 
-fs.readFile(appRoot + '/tests/image/test.jpg', function(err, data) {
-    if (err)
-        throw err;
+// fs.readFile(appRoot + '/tests/image/test.jpg', function(err, data) {
+//     if (err)
+//         throw err;
+//
+//     microsofComputerVision.describeImage({"Ocp-Apim-Subscription-Key": "d3aa94c0d5c34fafb7b090079228ef33", "content-type": "application/octet-stream", "body": data,"max-candidates":"2"}).then((result) => {
+//         console.log(JSON.stringify(result,'\t',4));
+//     }).catch((err)=>{
+//       throw err;
+//     })
+// });
 
-    microsofComputerVision.describeImage({"Ocp-Apim-Subscription-Key": "d3aa94c0d5c34fafb7b090079228ef33", "content-type": "application/octet-stream", "body": data,"max-candidates":"2"}).then((result) => {
-        console.log(JSON.stringify(result,'\t',4));
-    }).catch((err)=>{
-      throw err;
-    })
-});
+////////////////////////////////////////
+// Get image thumbnail by url
+////////////////////////////////////////
+
+// microsofComputerVision.imageThumbnail({
+//     "Ocp-Apim-Subscription-Key": "d3aa94c0d5c34fafb7b090079228ef33",
+//     "content-type": "application/json",
+//     "url": imageUrl,
+//     "width": "100",
+//     "height": "100",
+//     "smart-cropping": true
+// }).then((thumbnailBinary) => {
+//     fs.writeFile(appRoot + '/tests/image/thumbnail.jpg', thumbnailBinary, 'binary', function(err) {
+//         if (err)
+//             throw err
+//     })
+// }).catch((err) => {
+//     throw err;
+// })
+
+////////////////////////////////////////
+// Get image thumbnail by file
+////////////////////////////////////////
+
+// fs.readFile(appRoot + '/tests/image/test.jpg', function(err, data) {
+//     if (err)
+//         throw err;
+//
+//     microsofComputerVision.imageThumbnail({
+//         "Ocp-Apim-Subscription-Key": "d3aa94c0d5c34fafb7b090079228ef33",
+//         "content-type": "application/octet-stream",
+//         "body": data,
+//         "width": "100",
+//         "height": "100",
+//         "smart-cropping": true
+//     }).then((thumbnailBinary) => {
+//         fs.writeFile(appRoot + '/tests/image/thumbnail.jpg', thumbnailBinary, 'binary', function(err) {
+//             if (err)
+//                 throw err
+//         })
+//     }).catch((err) => {
+//         throw err;
+//     })
+// });

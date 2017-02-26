@@ -13,7 +13,7 @@
   },
   "license": "MIT",
   "scripts": {
-    "test": "mocha tests/* --compilers js:babel-register --require ./tests/helper.js --recursive",
+    "test": "mocha tests/* --timeout 10000 --compilers js:babel-register --require ./tests/helper.js --recursive",
     "start": "babel-node ./src/entry.js",
     "lint": "eslint --ext .js ./",
     "lint:fix": "npm run lint -- --fix",
@@ -40,11 +40,14 @@
     "babel-register": "^6.7.2",
     "chai": "^3.5.0",
     "chai-as-promised": "^6.0.0",
+    "chai-fs": "^1.0.0",
+    "del": "^2.2.2",
     "eslint": "^2.7.0",
     "eslint-config-airbnb": "^7.0.0",
     "eslint-plugin-babel": "^3.2.0",
     "eslint-plugin-flow-vars": "^0.3.0",
     "eslint-plugin-flowtype": "^2.2.6",
+    "image-type": "^3.0.0",
     "mocha": "^2.4.5",
     "pretty-error": "^2.0.0"
   },
