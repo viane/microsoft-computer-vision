@@ -17,7 +17,7 @@ npm install microsoft-computer-vision --save
 
 ### Analyze-Image
 
-> options
+> Options
 
 ```javascript
   {
@@ -106,7 +106,7 @@ fs.readFile(appRoot + '/tests/image/test.jpg', function(err, data) {
 });
 ```
 
-////// Tag-Image
+### Tag-Image
 
 > Options
 
@@ -183,6 +183,128 @@ fs.readFile(appRoot + '/tests/image/test.jpg', function(err, data) {
                                     //    { name: 'castle', confidence: 0.6080892086029053 } ],
                                     // requestId: 'eaafdbce-fa0f-4395-9aa3-f09a6d8e1a62',
                                     // metadata: { width: 883, height: 589, format: 'Jpeg' } }
+    }).catch((err)=>{
+      throw err;
+    })
+});
+```
+
+### Describe-Image
+
+> Options
+
+```javascript
+  {
+    "Ocp-Apim-Subscription-Key": "your subscription key",
+    "max-candidates":"1", // if not specified, library use 1 by default
+    "content-type": "application/json",
+    "url": "image_url"
+          //or
+    "content-type": "application/octet-stream",
+    "body": "image_binary"
+  }
+```
+
+> Function call
+
+```javascript
+describeImage({
+  "Ocp-Apim-Subscription-Key": "your subscription key",
+  "max-candidates":"1",
+  "content-type": "content type",
+  "url": "image_url" //or "body": "image_binary"
+}).then((result)=>{
+
+  // the tags are now in the result
+
+}).catch((err)=>{
+  throw err;
+})
+```
+> Example of passing image by URL
+
+```javascript
+const microsofComputerVision = require("microsoft-computer-vision");
+microsofComputerVision.describeImage({
+  "Ocp-Apim-Subscription-Key": "A_Key",
+  "max-candidates":"1",
+  "content-type": "application/json",
+  "url": "https://goo.gl/Hpz7gi"
+}).then((result)=>{
+  console.log(result);      // {
+                            // "description": {
+                            //     "tags": [
+                            //         "outdoor",
+                            //         "grass",
+                            //         "building",
+                            //         "large",
+                            //         "front",
+                            //          ...
+                            //     ],
+                            //     "captions": [
+                            //         {
+                            //             "text": "a castle with a clock tower in front of a building",
+                            //             "confidence": 0.5546771291117777
+                            //         },
+                            //         {
+                            //             "text": "a castle with a clock tower",
+                            //             "confidence": 0.5470764456423322
+                            //         }
+                            //     ]
+                            // },
+                            // "requestId": "b8ded71f-d515-41d4-9ac2-39372c41b3d8",
+                            // "metadata": {
+                            //     "width": 883,
+                            //     "height": 589,
+                            //     "format": "Jpeg"
+                            // }
+}).catch((err)=>{
+  throw err;
+})
+```
+
+> Example of passing image by binary
+
+```javascript
+// Suppose you want get description for /tests/image/test.jpg
+
+const microsofComputerVision = require("microsoft-computer-vision");
+
+fs.readFile(appRoot + '/tests/image/test.jpg', function(err, data) {
+    microsofComputerVision.describeImage({
+      "Ocp-Apim-Subscription-Key": "A_Key",
+      "max-candidates":"1",
+      "content-type": "application/octet-stream",
+      "body": data
+    }).then((result) => {
+        console.log(result);      // {
+                                  // "description": {
+                                  //     "tags": [
+                                  //         "outdoor",
+                                  //         "grass",
+                                  //         "building",
+                                  //         "large",
+                                  //         "front",
+                                  //          ...
+                                  //     ],
+                                  //     "captions": [
+                                  //         {
+                                  //             "text": "a castle with a clock tower in front of a building",
+                                  //             "confidence": 0.5546771291117777
+                                  //         },
+                                  //         {
+                                  //             "text": "a castle with a clock tower",
+                                  //             "confidence": 0.5470764456423322
+                                  //         }
+                                  //     ]
+                                  // },
+                                  // "requestId": "b8ded71f-d515-41d4-9ac2-39372c41b3d8",
+                                  // "metadata": {
+                                  //     "width": 883,
+                                  //     "height": 589,
+                                  //     "format": "Jpeg"
+                                  // }
+  }
     }).catch((err)=>{
       throw err;
     })

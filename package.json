@@ -1,8 +1,8 @@
 {
   "name": "microsoft-computer-vision",
-  "version": "0.0.1",
+  "version": "1.0.1",
   "author": "Xiaoyu Zhou <xiaoyuz2011@gmail.com>",
-  "main": "lib/index.js",
+  "main": "./src/index.js",
   "engines": {
     "node": ">=5.0 <6",
     "npm": ">=3.3 <4"
