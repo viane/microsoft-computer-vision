@@ -44,11 +44,15 @@ npm install microsoft-computer-vision --save
 
 > options
 
-```javascript
+```sh
   {
     "Ocp-Apim-Subscription-Key": "your subscription key",
-    "content-type": "application/json" /*or*/ "application/octet-stream"
-    "url": "image_url" //or
+
+    "content-type": "application/json",
+    "url": "image_url"
+          #or
+    "content-type": "application/octet-stream",
+    "body": "image_binary"
   }
 ```
 
