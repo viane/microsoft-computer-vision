@@ -79,7 +79,7 @@ microsofComputerVision.getImageAnalysis({
 // Suppose you want get tag and face for /tests/image/test.jpg
 
 const microsofComputerVision = require("microsoft-computer-vision");
-fs.readFile(appRoot + '/tests/image/test.jpg', function(err, data) {
+fs.readFile('/tests/image/test.jpg', function(err, data) {
     if (err)
         throw err;
 
@@ -167,7 +167,7 @@ microsofComputerVision.getImageTag({
 
 const microsofComputerVision = require("microsoft-computer-vision");
 
-fs.readFile(appRoot + '/tests/image/test.jpg', function(err, data) {
+fs.readFile('/tests/image/test.jpg', function(err, data) {
     microsofComputerVision.getImageTag({
       "Ocp-Apim-Subscription-Key": "A_Key",
       "content-type": "application/octet-stream",
@@ -270,7 +270,7 @@ microsofComputerVision.describeImage({
 
 const microsofComputerVision = require("microsoft-computer-vision");
 
-fs.readFile(appRoot + '/tests/image/test.jpg', function(err, data) {
+fs.readFile('/tests/image/test.jpg', function(err, data) {
     microsofComputerVision.describeImage({
       "Ocp-Apim-Subscription-Key": "A_Key",
       "max-candidates":"1",
