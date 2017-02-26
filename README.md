@@ -1,8 +1,8 @@
 # microsoft-computer-vision
 
 [![GitHub issues](https://img.shields.io/github/issues/viane/microsoft-computer-vision.svg)](https://github.com/viane/microsoft-computer-vision/issues)
-[![GitHub license](https://img.shields.io/badge/build-pass-green.svg)](https://github.com/viane/microsoft-computer-vision/tree/master/tests)
-[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/viane/microsoft-computer-vision/master/LICENSE)
+&nbsp;&nbsp;[![GitHub license](https://img.shields.io/badge/build-pass-green.svg)](https://github.com/viane/microsoft-computer-vision/tree/master/tests)
+&nbsp;&nbsp;[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/viane/microsoft-computer-vision/master/LICENSE)
 
 </br>
 ### What does this library do?
