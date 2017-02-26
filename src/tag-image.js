@@ -24,7 +24,6 @@ export default(_opt) => {
                 "uri": uri,
                 "method": "POST",
                 "type": "POST",
-                "resolveWithFullResponse": "",
                 "headers": {
                     "Content-Type": "",
                     "Ocp-Apim-Subscription-Key": ""
