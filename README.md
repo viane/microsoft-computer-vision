@@ -544,6 +544,52 @@ fs.readFile('/tests/image/orcTest.jpg', function(err, data) {
 });
 ```
 
+### List Domain Specific Models
+
+> Options
+
+```javascript
+  {
+    "Ocp-Apim-Subscription-Key": "A_Key"
+  }
+```
+
+> Function call
+
+```javascript
+recognizeDomainSpecificContent({
+    "Ocp-Apim-Subscription-Key": "A_Key"
+}).then((result)=>{
+    // ORC are now in the result
+}).catch((err)=>{
+  throw err;
+})
+```
+
+> Example of getting List Domain Specific Models
+
+```javascript
+const microsofComputerVision = require("microsoft-computer-vision");
+microsofComputerVision.listDomainSpecificModels({
+    "Ocp-Apim-Subscription-Key": "A_Key"
+}).then((result)=>{
+
+  console.log(JSON.stringify(result));        // {
+                                              //   "models": [
+                                              //       {
+                                              //           "name": "celebrities",
+                                              //           "categories": [
+                                              //               "people_"
+                                              //           ]
+                                              //       }
+                                              //   ],
+                                              //   "requestId": "980399d9-c520-49b6-bf29-bbe30aae515e"
+                                              // }
+}).catch((err)=>{
+  throw err;
+})
+```
+
 ### Recognize Domain Specific Content
 
 > Options
@@ -613,7 +659,7 @@ microsofComputerVision.recognizeDomainSpecificContent({
 > Example of passing image by binary
 
 ```javascript
-// Suppose you want get ORC analysis for /tests/image/RDSCTest.jpg
+// Suppose you want get model in /tests/image/RDSCTest.jpg
 
 const microsofComputerVision = require("microsoft-computer-vision");
 

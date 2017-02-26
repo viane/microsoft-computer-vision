@@ -161,6 +161,18 @@ describe('#orcImage()', () => {
     });
 });
 
+describe('#listDomainSpecificModels()', () => {
+    it('Should return the available models', () => {
+
+        const result = microsofComputerVision.listDomainSpecificModels({
+            "Ocp-Apim-Subscription-Key": "d3aa94c0d5c34fafb7b090079228ef33"
+        });
+
+        return expect(result).to.eventually.have.deep.property("models");
+
+    });
+});
+
 describe('#recognizeDomainSpecificContent()', () => {
     it('Should return the Optical Character Recognition of image URI', () => {
 

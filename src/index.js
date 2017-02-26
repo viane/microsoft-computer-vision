@@ -4,6 +4,7 @@ import getDescriptionFromImage from './describe-image';
 import getThumbnailFromImage from './get-thumbnail';
 import getORCFromImage from './orc';
 import getRDSC from './recognize-domain-specific-content';
+import getLDSM from './list-domain-specific-models';
 
 exports.analyzeImage = (_opt) => {
     if (_opt) {
@@ -44,6 +45,17 @@ exports.orcImage = (_opt) => {
     } else {
         return new Promise(function(resolve, reject) {
             const err = new Error("Require basic options, please reference: https://github.com/viane/microsoft-computer-vision/blob/master/README.md#orc-image");
+            reject(err);
+        });
+    }
+};
+
+exports.listDomainSpecificModels = (_opt) => {
+    if (_opt) {
+        return getLDSM(_opt)
+    } else {
+        return new Promise(function(resolve, reject) {
+            const err = new Error("Require basic options, please reference: https://github.com/viane/microsoft-computer-vision#list-domain-specific-models");
             reject(err);
         });
     }

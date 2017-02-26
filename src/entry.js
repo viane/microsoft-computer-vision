@@ -183,3 +183,15 @@ const imageUrl = "https://goo.gl/Hpz7gi";
 //         throw err;
 //     })
 // });
+
+//////////////////////////////////////////////////////////
+// List domain specific models
+//////////////////////////////////////////////////////////
+
+// microsofComputerVision.listDomainSpecificModels({
+//     "Ocp-Apim-Subscription-Key": "d3aa94c0d5c34fafb7b090079228ef33"
+// }).then((result) => {
+//     console.log(JSON.stringify(result,'\t',4));
+// }).catch((err) => {
+//     throw err;
+// })
