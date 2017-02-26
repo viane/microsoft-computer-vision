@@ -23,13 +23,17 @@ npm test
 
 #### Tag-Image
 
+> Function call
+
 ```sh
 getTagFromImage({
   "Ocp-Apim-Subscription-Key": "your subscription key",
-  "content-type": "content type",
-  "url": "image url"
+  "content-type": "content type", // "application/json" or "application/octet-stream"
+  "url": "image_url"
 }).then((result)=>{
-  // the tags are now in the result     
+
+  // the tags are now in the result
+
 }).catch((err)=>{
   throw err;
 })
@@ -60,12 +64,14 @@ getTagFromImage({
 
 ```sh
 // Suppose you want get tag for /tests/image/test.jpg
+
 fs.readFile(appRoot + '/tests/image/test.jpg', function(err, data) {
     app.getTagFromImage({
       "Ocp-Apim-Subscription-Key": "A_Key",
       "content-type": "application/octet-stream",
       "body": data
     }).then((result) => {
+
         console.log(result);        # { tags:
                                     #  [ { name: 'tree', confidence: 0.9994124174118042 },
                                     #    { name: 'outdoor', confidence: 0.9984000325202942 },

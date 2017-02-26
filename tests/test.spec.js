@@ -5,12 +5,6 @@ chai.use(chaiAsPromised);
 const expect = chai.expect;
 const assert = chai.assert;
 
-describe('app', () => {
-    it('returns string', () => {
-        expect(typeof(app.basic())).to.equal('string');
-    });
-});
-
 describe('#getTagFromImage()', () => {
     it('Should return an array of tags by image URI', () => {
         const imageUrl = "https://www.smashingmagazine.com/wp-content/uploads/2016/01/07-responsive-image-example-castle-7-opt.jpg";
