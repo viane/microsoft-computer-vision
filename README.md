@@ -1,7 +1,7 @@
 # microsoft-computer-vision
 
 [![GitHub issues](https://img.shields.io/github/issues/viane/microsoft-computer-vision.svg)](https://github.com/viane/microsoft-computer-vision/issues)
-&nbsp;&nbsp;[![GitHub license](https://img.shields.io/badge/build-pass-green.svg)](https://github.com/viane/microsoft-computer-vision/tree/master/tests)
+&nbsp;&nbsp;[![Build Status](https://travis-ci.org/viane/microsoft-computer-vision.svg?branch=master)](https://travis-ci.org/viane/microsoft-computer-vision)
 &nbsp;&nbsp;[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/viane/microsoft-computer-vision/master/LICENSE)
 
 </br>
