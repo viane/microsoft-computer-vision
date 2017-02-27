@@ -38,7 +38,6 @@
     "babel-preset-stage-2": "^6.5.0",
     "babel-register": "^6.7.2",
     "chai": "^3.5.0",
-    "chai-as-promised": "^6.0.0",
     "chai-fs": "^1.0.0",
     "del": "^2.2.2",
     "eslint": "^2.7.0",
@@ -62,7 +61,7 @@
   "dependencies": {
     "bluebird": "^3.4.7",
     "chai-as-promised": "^6.0.0",
-    "eslint-plugin-jsx-a11y": "^4.0.0",
+    "eslint-plugin-jsx-a11y": "^0.6.2",
     "load-json-file": "^2.0.0",
     "request": "^2.79.0",
     "request-promise": "^4.1.1"
