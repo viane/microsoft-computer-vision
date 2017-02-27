@@ -5,7 +5,6 @@ chai.use(chaiAsPromised);
 chai.use(require('chai-fs'));
 const expect = chai.expect;
 const assert = chai.assert;
-const appRoot = require('app-root-path');
 const fs = require('fs');
 const myKey = "";
 
