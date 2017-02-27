@@ -1,10 +1,10 @@
 # microsoft-computer-vision
-
+</br>
 [![GitHub issues](https://img.shields.io/github/issues/viane/microsoft-computer-vision.svg)](https://github.com/viane/microsoft-computer-vision/issues)
 &nbsp;&nbsp;[![Build Status](https://travis-ci.org/viane/microsoft-computer-vision.svg?branch=master)](https://travis-ci.org/viane/microsoft-computer-vision)
 &nbsp;&nbsp;[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/viane/microsoft-computer-vision/master/LICENSE)
 
-</br>
+
 ### What does this library do?
 
 Extract rich information from images to categorize and process visual data—and protect your users from unwanted content.
