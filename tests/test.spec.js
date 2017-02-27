@@ -6,7 +6,7 @@ chai.use(require('chai-fs'));
 const expect = chai.expect;
 const assert = chai.assert;
 const fs = require('fs');
-const myKey = "";
+const myKey = "fa789153b75a46e3a13fc5433e8bbe07";
 
 describe('#tagImage()', () => {
     it('Should return an array of tags by image URI', () => {
