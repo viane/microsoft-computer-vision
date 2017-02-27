@@ -241,6 +241,7 @@ This operation generates a description of an image in human readable language wi
 Two input methods are supported -- (1) Uploading an image binary or (2) specifying an image URL.
 
 </br>
+
 > Options
 
 ```javascript
@@ -374,6 +375,7 @@ This operation generates a thumbnail image with the user-specified width and hei
 A successful response contains the thumbnail image binary. If the request failed, the response contains an error code and a message to help determine what went wrong.
 
 </br>
+
 > Options
 
 ```javascript
@@ -473,6 +475,7 @@ Upon success, the OCR results will be returned.
 Two input methods are supported -- (1) Uploading an image binary or (2) specifying an image URL.
 
 </br>
+
 > Options
 
 ```javascript
@@ -624,6 +627,7 @@ Description
 TThis operation returns the list of domain-specific models that are supported by the Computer Vision API. Currently, the API only supports one domain-specific model: a celebrity recognizer.
 
 </br>
+
 > Options
 
 ```javascript
@@ -638,7 +642,7 @@ TThis operation returns the list of domain-specific models that are supported by
 recognizeDomainSpecificContent({
     "Ocp-Apim-Subscription-Key": "A_Key"
 }).then((result)=>{
-    // ORC are now in the result
+    // Domain content are now in the result
 }).catch((err)=>{
   throw err;
 })
@@ -680,6 +684,7 @@ This operation recognizes content within an image by applying a domain-specific 
 Two input methods are supported -- (1) Uploading an image binary or (2) specifying an image URL.
 
 </br>
+
 > Options
 
 ```javascript
@@ -700,7 +705,7 @@ recognizeDomainSpecificContent({
     "url": "image_url",
     "model": "{model}"
 }).then((result)=>{
-    // ORC are now in the result
+    // Domain content are now in the result
 }).catch((err)=>{
   throw err;
 })
