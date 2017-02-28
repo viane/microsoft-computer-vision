@@ -811,7 +811,7 @@ fs.readFile('/tests/image/RDSCTest.jpg', function(err, data) {
 ### License
 
 This library is licensed under MIT. Full license text is available in
-[COPYING](https://opensource.org/licenses/MIT).
+[COPYING](https://github.com/viane/microsoft-computer-vision/blob/master/LICENSE).
 
 ### Contributing
-See [CONTRIBUTING](https://github.com/viane/microsoft-computer-vision/blob/master/contributing.md).
+See [CONTRIBUTING](https://github.com/viane/microsoft-computer-vision/blob/master/CONTRIBUTING.md).
