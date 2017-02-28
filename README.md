@@ -18,12 +18,27 @@ When me and my friends tried to use computer vision in a hackthon, the data pars
 
 </br>
 
+## Table of Contents
+  * [Installation](#installation)
+  * [Feature](#feature)
+  * [API](#api)
+    * [Analyze-Image](#analyze-image)
+    * [Tag-Image](#tag-image)
+    * [Describe-Image](#describe-image)
+    * [Image-Thumbnail](#image-thumbnail)
+    * [ORC-Image](#orc-image)
+    * [List Domain Specific Models](#list-domain-specific-models)
+    * [Recognize Domain Specific Content](#recognize-domain-specific-content)
+  * [License](#license)
+  * [Contributing](#contributing)
+
 ### Installation
 
 ```sh
 npm install microsoft-computer-vision --save
 ```
 </br>
+
 ### Feature
 
  - Promise based
@@ -792,3 +807,11 @@ fs.readFile('/tests/image/RDSCTest.jpg', function(err, data) {
     })
 });
 ```
+
+### License
+
+This library is licensed under MIT. Full license text is available in
+[COPYING](https://opensource.org/licenses/MIT).
+
+### Contributing
+See [CONTRIBUTING](https://github.com/viane/microsoft-computer-vision/blob/master/contributing.md).
