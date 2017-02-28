@@ -1,10 +1,15 @@
 # microsoft-computer-vision
 </br>
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/84bd711074be406e8a7e705a95497913)](https://www.codacy.com/app/viane/microsoft-computer-vision?utm_source=github.com&utm_medium=referral&utm_content=viane/microsoft-computer-vision&utm_campaign=badger)
+
 &nbsp;&nbsp;[![GitHub issues](https://img.shields.io/github/issues/viane/microsoft-computer-vision.svg)](https://github.com/viane/microsoft-computer-vision/issues)
+
 &nbsp;&nbsp;[![GitHub stars](https://img.shields.io/github/stars/viane/microsoft-computer-vision.svg)](https://github.com/viane/microsoft-computer-vision/stargazers)
+
 &nbsp;&nbsp;[![GitHub forks](https://img.shields.io/github/forks/viane/microsoft-computer-vision.svg)](https://github.com/viane/microsoft-computer-vision/network)
+
 &nbsp;&nbsp;[![Build Status](https://travis-ci.org/viane/microsoft-computer-vision.svg?branch=master)](https://travis-ci.org/viane/microsoft-computer-vision)
+
 &nbsp;&nbsp;[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/viane/microsoft-computer-vision/master/LICENSE)
 
 ### What does this library do?

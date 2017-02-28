@@ -1,2 +1,6 @@
 node_modules
 docs/myKey.txt
+
+*.log
+
+npm-debug.log
