@@ -1,7 +1,8 @@
 # microsoft-computer-vision
 
-<a href="https://www.codacy.com/app/viane/microsoft-computer-vision?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=viane/microsoft-computer-vision&amp;utm_campaign=Badge_Grade"><img src="https://api.codacy.com/project/badge/Grade/84bd711074be406e8a7e705a95497913"/></a>[![GitHub issues](https://img.shields.io/github/issues/viane/microsoft-computer-vision.svg)](https://github.com/viane/microsoft-computer-vision/issues)
-&nbsp[![GitHub stars](https://img.shields.io/github/stars/viane/microsoft-computer-vision.svg)](https://github.com/viane/microsoft-computer-vision/stargazers)
+<a href="https://www.codacy.com/app/viane/microsoft-computer-vision?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=viane/microsoft-computer-vision&amp;utm_campaign=Badge_Grade"><img src="https://api.codacy.com/project/badge/Grade/84bd711074be406e8a7e705a95497913"/></a>&nbsp&nbsp
+[![GitHub issues](https://img.shields.io/github/issues/viane/microsoft-computer-vision.svg)](https://github.com/viane/microsoft-computer-vision/issues)
+[![GitHub stars](https://img.shields.io/github/stars/viane/microsoft-computer-vision.svg)](https://github.com/viane/microsoft-computer-vision/stargazers)
 [![GitHub forks](https://img.shields.io/github/forks/viane/microsoft-computer-vision.svg)](https://github.com/viane/microsoft-computer-vision/network)
 [![Build Status](https://travis-ci.org/viane/microsoft-computer-vision.svg?branch=master)](https://travis-ci.org/viane/microsoft-computer-vision)
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/viane/microsoft-computer-vision/master/LICENSE)
