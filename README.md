@@ -6,6 +6,7 @@
 [![GitHub forks](https://img.shields.io/github/forks/viane/microsoft-computer-vision.svg)](https://github.com/viane/microsoft-computer-vision/network)
 [![Build Status](https://travis-ci.org/viane/microsoft-computer-vision.svg?branch=master)](https://travis-ci.org/viane/microsoft-computer-vision)
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/viane/microsoft-computer-vision/master/LICENSE)
+
 [![NPM](https://nodei.co/npm/microsoft-computer-vision.png?downloads=true&downloadRank=true)](https://nodei.co/npm/microsoft-computer-vision/)
 
 ### What does this library do?
