@@ -1,6 +1,7 @@
 node_modules
 docs/myKey.txt
-
+/src
+src
 
 *.log
 
