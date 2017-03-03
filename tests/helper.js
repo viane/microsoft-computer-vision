@@ -4,4 +4,4 @@ import path from 'path';
 
 global.expect = expect;
 
-addPath(path.resolve(__dirname, '../src'));
+addPath(path.resolve(__dirname, '../lib'));
