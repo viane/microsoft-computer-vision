@@ -1,6 +1,6 @@
 {
   "name": "microsoft-computer-vision",
-  "version": "0.2.5",
+  "version": "0.2.6",
   "author": "Xiaoyu Zhou <xiaoyuz2011@gmail.com>",
   "main": "./lib/index.js",
   "engines": {
@@ -14,7 +14,7 @@
   },
   "license": "MIT",
   "scripts": {
-    "test": "mocha tests/* --timeout 10000 --compilers js:babel-register --require ./tests/helper.js --recursive",
+    "test": "mocha tests/* --timeout 30000 --compilers js:babel-register --require ./tests/helper.js --recursive",
     "start": "babel-node ./src/entry.js",
     "build": "babel src --out-dir lib"
   },
@@ -61,7 +61,6 @@
   "dependencies": {
     "bluebird": "^3.4.7",
     "chai-as-promised": "^6.0.0",
-    "eslint-plugin-jsx-a11y": "^0.6.2",
     "load-json-file": "^2.0.0",
     "request": "^2.79.0",
     "request-promise": "^4.1.1"
