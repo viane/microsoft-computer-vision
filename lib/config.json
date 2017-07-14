@@ -1,12 +1,26 @@
 {
-  "requestBaseURL":"https://westus.api.cognitive.microsoft.com/vision/v1.0",
-  "route":{
-    "Analyze-Image":"/analyze",
-    "Describe-Image":"/describe",
-    "Get-Thumbnail":"/generateThumbnail",
-    "List-Domain-Specific-Models":"/models",
-    "OCR":"/ocr",
-    "Recognize-Domain-Specific-Content":"/models/{model}/analyze",
-    "Tag-Image":"/tag"
+  "content-type": ["application/json", "application/octet-stream", "multipart/form-data"],
+  "visual-features": [
+    "Categories",
+    "Tags",
+    "Description",
+    "Faces",
+    "ImageType",
+    "Color",
+    "Adult"
+  ],
+  "details":["Celebrities","Landmarks"],
+  "languages":["zh","en"],
+  "origin": ["westus", "eastus2", "westcentralus", "westeurope", "southeastasia"],
+  "request-base-URL": "https://{origin}.api.cognitive.microsoft.com/vision/v1.0",
+  "models":["Celebrities","Landmarks"],
+  "route": {
+    "analyze-image": "/analyze",
+    "describe-image": "/describe",
+    "get-thumbnail": "/generateThumbnail",
+    "list-domain-specific-models": "/models",
+    "orc": "/ocr",
+    "recognize-domain-specific-content": "/models/{model}/analyze",
+    "tag-image": "/tag"
   }
 }
