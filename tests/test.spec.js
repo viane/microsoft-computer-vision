@@ -6,15 +6,15 @@ chai.use(require('chai-fs'));
 const expect = chai.expect;
 const assert = chai.assert;
 const fs = require('fs');
-const myKey = "fa789153b75a46e3a13fc5433e8bbe07";
+const myKey = "37f3c887843340279cbddb048b43d3b8";
 
 describe('#tagImage()', () => {
   it('Should return an array of tags by image URI', function() {
     this.timeout(8000);
-    const imageUrl = "https://www.smashingmagazine.com/wp-content/uploads/2016/01/07-responsive-image-example-castle-7-opt.jpg";
+    const imageUrl = "https://azurecomcdn.azureedge.net/cvt-ada4056a687a0f024d478b2eba03524ad163dd9a6c0853326a5a71276dc4d3c6/images/shared/cognitive-services-demos/analyze-image/analyze-3-thumbnail.jpg";
     const contentType = "application/json";
 
-    const result = microsofComputerVision.tagImage({"Ocp-Apim-Subscription-Key": myKey, "content-type": contentType, "url": imageUrl, "request-origin": "westus"});
+    const result = microsofComputerVision.tagImage({"Ocp-Apim-Subscription-Key": myKey, "content-type": contentType, "url": imageUrl, "request-origin": "eastus2"});
 
     return expect(result).to.eventually.have.property("tags");
   });
@@ -28,7 +28,7 @@ describe('#tagImage()', () => {
         throw err;
       }
 
-      const result = microsofComputerVision.tagImage({"Ocp-Apim-Subscription-Key": myKey, "content-type": contentType, "url": data, "request-origin": "westus"});
+      const result = microsofComputerVision.tagImage({"Ocp-Apim-Subscription-Key": myKey, "content-type": contentType, "url": data, "request-origin": "eastus2"});
 
       return expect(result).to.eventually.have.property("tags");
     })
@@ -40,9 +40,9 @@ describe('#tagImage()', () => {
 describe('#analyzeImage()', () => {
   it('Should return an array of faces by image URI', function() {
     this.timeout(8000);
-    const imageUrl = "https://www.smashingmagazine.com/wp-content/uploads/2016/01/07-responsive-image-example-castle-7-opt.jpg";
+    const imageUrl = "https://azurecomcdn.azureedge.net/cvt-ada4056a687a0f024d478b2eba03524ad163dd9a6c0853326a5a71276dc4d3c6/images/shared/cognitive-services-demos/analyze-image/analyze-3-thumbnail.jpg";
 
-    const result = microsofComputerVision.analyzeImage({"Ocp-Apim-Subscription-Key": myKey, "content-type": "application/json", "url": imageUrl, "visual-features": "faces", "request-origin": "westus"});
+    const result = microsofComputerVision.analyzeImage({"Ocp-Apim-Subscription-Key": myKey, "content-type": "application/json", "url": imageUrl, "visual-features": "faces", "request-origin": "eastus2"});
 
     return expect(result).to.eventually.have.property("faces");
   });
@@ -56,7 +56,7 @@ describe('#analyzeImage()', () => {
         throw err;
       }
 
-      const result = microsofComputerVision.analyzeImage({"Ocp-Apim-Subscription-Key": myKey, "content-type": "application/octet-stream", "body": data, "visual-features": "Faces", "request-origin": "westus"});
+      const result = microsofComputerVision.analyzeImage({"Ocp-Apim-Subscription-Key": myKey, "content-type": "application/octet-stream", "body": data, "visual-features": "Faces", "request-origin": "eastus2"});
 
       return expect(result).to.eventually.have.property("faces");
     })
@@ -68,9 +68,9 @@ describe('#analyzeImage()', () => {
 describe('#describeImage()', () => {
   it('Should return a description of image URI', function() {
     this.timeout(8000);
-    const imageUrl = "https://www.smashingmagazine.com/wp-content/uploads/2016/01/07-responsive-image-example-castle-7-opt.jpg";
+    const imageUrl = "https://azurecomcdn.azureedge.net/cvt-ada4056a687a0f024d478b2eba03524ad163dd9a6c0853326a5a71276dc4d3c6/images/shared/cognitive-services-demos/analyze-image/analyze-3-thumbnail.jpg";
 
-    const result = microsofComputerVision.describeImage({"Ocp-Apim-Subscription-Key": myKey, "content-type": "application/json", "url": imageUrl, "max-candidates": "2", "request-origin": "westus"});
+    const result = microsofComputerVision.describeImage({"Ocp-Apim-Subscription-Key": myKey, "content-type": "application/json", "url": imageUrl, "max-candidates": "2", "request-origin": "eastus2"});
 
     return expect(result).to.eventually.have.property("description");
   });
@@ -84,7 +84,7 @@ describe('#describeImage()', () => {
         throw err;
       }
 
-      const result = microsofComputerVision.describeImage({"Ocp-Apim-Subscription-Key": myKey, "content-type": "application/octet-stream", "body": data, "max-candidates": "2", "request-origin": "westus"});
+      const result = microsofComputerVision.describeImage({"Ocp-Apim-Subscription-Key": myKey, "content-type": "application/octet-stream", "body": data, "max-candidates": "2", "request-origin": "eastus2"});
 
       return expect(result).to.eventually.have.property("description");
     })
@@ -96,7 +96,7 @@ describe('#describeImage()', () => {
 describe('#imageThumbnail()', () => {
   it('Should write the thumbnail of image URI to /tests/image/thumbnail.jpg', function() {
     this.timeout(8000);
-    const imageUrl = "https://www.smashingmagazine.com/wp-content/uploads/2016/01/07-responsive-image-example-castle-7-opt.jpg";
+    const imageUrl = "https://azurecomcdn.azureedge.net/cvt-ada4056a687a0f024d478b2eba03524ad163dd9a6c0853326a5a71276dc4d3c6/images/shared/cognitive-services-demos/analyze-image/analyze-3-thumbnail.jpg";
 
     const result = microsofComputerVision.imageThumbnail({
       "Ocp-Apim-Subscription-Key": myKey,
@@ -105,7 +105,7 @@ describe('#imageThumbnail()', () => {
       "width": "100",
       "height": "100",
       "smart-cropping": true,
-      "request-origin": "westus"
+      "request-origin": "eastus2"
     });
     return expect(result).to.not.eventually.have.property("code");
 
@@ -127,7 +127,7 @@ describe('#imageThumbnail()', () => {
         "width": "100",
         "height": "100",
         "smart-cropping": true,
-        "request-origin": "westus"
+        "request-origin": "eastus2"
       });
 
       return expect(result).to.not.eventually.have.property("code");
@@ -138,7 +138,7 @@ describe('#imageThumbnail()', () => {
 describe('#orcImage()', () => {
   it('Should return the Optical Character Recognition of image URI', function() {
     this.timeout(8000);
-    const imageUrl = "https://www.smashingmagazine.com/wp-content/uploads/2016/01/07-responsive-image-example-castle-7-opt.jpg";
+    const imageUrl = "https://azurecomcdn.azureedge.net/cvt-ada4056a687a0f024d478b2eba03524ad163dd9a6c0853326a5a71276dc4d3c6/images/shared/cognitive-services-demos/analyze-image/analyze-3-thumbnail.jpg";
 
     const result = microsofComputerVision.orcImage({
       "Ocp-Apim-Subscription-Key": myKey,
@@ -146,7 +146,7 @@ describe('#orcImage()', () => {
       "url": "http://cdn.quotesgram.com/img/81/49/660235022-Random-Funny-Quotes-.jpg",
       "language": "en",
       "detect-orientation": true,
-      "request-origin": "westus"
+      "request-origin": "eastus2"
     });
     return expect(result).to.eventually.have.property("regions");
 
@@ -167,7 +167,7 @@ describe('#orcImage()', () => {
         "body": data,
         "language": "en",
         "detect-orientation": true,
-        "request-origin": "westus"
+        "request-origin": "eastus2"
       });
 
       return expect(result).to.eventually.have.property("regions");
@@ -178,7 +178,7 @@ describe('#orcImage()', () => {
 describe('#listDomainSpecificModels()', () => {
   it('Should return the available models', function() {
     this.timeout(8000);
-    const result = microsofComputerVision.listDomainSpecificModels({"Ocp-Apim-Subscription-Key": myKey, "request-origin": "westus"});
+    const result = microsofComputerVision.listDomainSpecificModels({"Ocp-Apim-Subscription-Key": myKey, "request-origin": "eastus2"});
 
     return expect(result).to.eventually.have.deep.property("models");
 
@@ -188,7 +188,7 @@ describe('#listDomainSpecificModels()', () => {
 describe('#recognizeDomainSpecificContent()', () => {
   it('Should return the Optical Character Recognition of image URI', function() {
     this.timeout(8000);
-    const result = microsofComputerVision.recognizeDomainSpecificContent({"Ocp-Apim-Subscription-Key": myKey, "content-type": "application/json", "url": "http://d.ibtimes.co.uk/en/full/377533/bill-gates.jpg", "model": "celebrities", "request-origin": "westus"});
+    const result = microsofComputerVision.recognizeDomainSpecificContent({"Ocp-Apim-Subscription-Key": myKey, "content-type": "application/json", "url": "http://d.ibtimes.co.uk/en/full/377533/bill-gates.jpg", "model": "celebrities", "request-origin": "eastus2"});
     return expect(result).to.eventually.have.deep.property("result.celebrities");
 
   });
@@ -202,7 +202,7 @@ describe('#recognizeDomainSpecificContent()', () => {
         throw err;
       }
 
-      const result = microsofComputerVision.recognizeDomainSpecificContent({"Ocp-Apim-Subscription-Key": myKey, "content-type": "application/octet-stream", "body": data, "model": "celebrities", "request-origin": "westus"});
+      const result = microsofComputerVision.recognizeDomainSpecificContent({"Ocp-Apim-Subscription-Key": myKey, "content-type": "application/octet-stream", "body": data, "model": "celebrities", "request-origin": "eastus2"});
 
       return expect(result).to.eventually.have.deep.property("result.celebrities");
     });
