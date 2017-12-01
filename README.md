@@ -1,6 +1,19 @@
 # microsoft-computer-vision
 
-[![](https://api.codacy.com/project/badge/Grade/84bd711074be406e8a7e705a95497913)](https://www.codacy.com/app/viane/microsoft-computer-vision?utm_source=github.com&utm_medium=referral&utm_content=viane/microsoft-computer-vision&utm_campaign=Badge_Grade) [![GitHub issues](https://img.shields.io/github/issues/viane/microsoft-computer-vision.svg)](https://github.com/viane/microsoft-computer-vision/issues) [![GitHub stars](https://img.shields.io/github/stars/viane/microsoft-computer-vision.svg)](https://github.com/viane/microsoft-computer-vision/stargazers) [![GitHub forks](https://img.shields.io/github/forks/viane/microsoft-computer-vision.svg)](https://github.com/viane/microsoft-computer-vision/network) [![Build Status](https://travis-ci.org/viane/microsoft-computer-vision.svg?branch=master)](https://travis-ci.org/viane/microsoft-computer-vision) [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/viane/microsoft-computer-vision/master/LICENSE)
+[![](https://api.codacy.com/project/badge/Grade/84bd711074be406e8a7e705a95497913)](https://www.codacy.com/app/viane/microsoft-computer-vision?utm_source=github.com&utm_medium=referral&utm_content=viane/microsoft-computer-vision&utm_campaign=Badge_Grade)
+[![npm version](https://badge.fury.io/js/microsoft-computer-vision.svg)](https://badge.fury.io/js/microsoft-computer-vision)
+[![GitHub issues](https://img.shields.io/github/issues/viane/microsoft-computer-vision.svg)](https://github.com/viane/microsoft-computer-vision/issues)
+[![GitHub stars](https://img.shields.io/github/stars/viane/microsoft-computer-vision.svg)](https://github.com/viane/microsoft-computer-vision/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/viane/microsoft-computer-vision.svg)](https://github.com/viane/microsoft-computer-vision/network)
+[![HitCount](http://hits.dwyl.io/viane/microsoft-computer-vision.svg)](http://hits.dwyl.io/viane/microsoft-computer-vision)
+[![bitHound Overall Score](https://www.bithound.io/github/viane/microsoft-computer-vision/badges/score.svg)](https://www.bithound.io/github/viane/microsoft-computer-vision)
+[![bitHound Code](https://www.bithound.io/github/viane/microsoft-computer-vision/badges/code.svg)](https://www.bithound.io/github/viane/microsoft-computer-vision)
+[![bitHound Dependencies](https://www.bithound.io/github/viane/microsoft-computer-vision/badges/dependencies.svg)](https://www.bithound.io/github/viane/microsoft-computer-vision/master/dependencies/npm)
+[![bitHound Dev Dependencies](https://www.bithound.io/github/viane/microsoft-computer-vision/badges/devDependencies.svg)](https://www.bithound.io/github/viane/microsoft-computer-vision/master/dependencies/npm)
+[![Build Status](https://travis-ci.org/viane/microsoft-computer-vision.svg?branch=master)](https://travis-ci.org/viane/microsoft-computer-vision)
+[![NSP Status](https://nodesecurity.io/orgs/open-source-library/projects/647c9121-e7ec-46ac-8369-afd7e1ebf21a/badge)](https://nodesecurity.io/orgs/open-source-library/projects/647c9121-e7ec-46ac-8369-afd7e1ebf21a)
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/viane/microsoft-computer-vision/master/LICENSE)
+
 
 [![NPM](https://nodei.co/npm/microsoft-computer-vision.png?downloads=true&downloadRank=true)](https://nodei.co/npm/microsoft-computer-vision/)
 
