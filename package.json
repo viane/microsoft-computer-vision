@@ -1,6 +1,6 @@
 {
   "name": "microsoft-computer-vision",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "author": "Xiaoyu Zhou <xiaoyuz2011@gmail.com>",
   "main": "./lib/index.js",
   "engines": {

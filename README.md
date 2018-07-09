@@ -23,7 +23,7 @@ This is a wrapper package for Microsoft Computer Vision APIs, it serves as regul
 
 - [Installation](#installation)
 - [Feature](#feature)
-- [Support Region](#supported-regions)
+- [Support Region](#support-regions)
 - [API](#api)
 
   - [Analyze-Image](#analyze-image)
