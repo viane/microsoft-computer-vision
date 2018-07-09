@@ -9,11 +9,11 @@
     "Color",
     "Adult"
   ],
-  "details":["Celebrities","Landmarks"],
-  "languages":["zh","en"],
-  "origin": ["westus", "eastus2", "westcentralus", "westeurope", "southeastasia"],
-  "request-base-URL": "https://{origin}.api.cognitive.microsoft.com/vision/v1.0",
-  "models":["Celebrities","Landmarks"],
+  "details": ["Celebrities", "Landmarks"],
+  "languages": ["zh", "en"],
+  "origin": ["westus", "westus2", "eastus", "eastus2", "southcentralus", "westcentralus", "westeurope", "southeastasia", "canadacentral", "uksouth", "japaneast", "australiaeast", "brazilsouth", "centralindia", "eastasia", "northeurope", "westeurope"],
+  "request-base-URL": "https://{origin}.api.cognitive.microsoft.com/vision/v2.0",
+  "models": ["Celebrities", "Landmarks"],
   "route": {
     "analyze-image": "/analyze",
     "describe-image": "/describe",

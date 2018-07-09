@@ -1,6 +1,6 @@
 {
   "name": "microsoft-computer-vision",
-  "version": "0.3.3",
+  "version": "0.4.0",
   "author": "Xiaoyu Zhou <xiaoyuz2011@gmail.com>",
   "main": "./lib/index.js",
   "engines": {
@@ -14,10 +14,11 @@
   },
   "license": "MIT",
   "scripts": {
-    "test": "mocha tests/* --compilers js:babel-register --require ./tests/helper.js --recursive",
+    "test": "mocha --timeout 10000 tests/* --compilers js:babel-register --require ./tests/helper.js --recursive",
     "start": "babel-node ./src/temp-test.js",
     "watch": "babel --watch src --out-dir lib --source-maps inline --copy-files",
-    "build": "babel src --out-dir lib --source-maps inline --copy-files"
+    "build": "babel src --out-dir lib --source-maps inline --copy-files",
+    "build-test": "npm run build && npm test"
   },
   "babel": {
     "presets": [
