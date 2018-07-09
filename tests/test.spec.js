@@ -96,7 +96,7 @@ describe('#describeImage()', () => {
 })
 
 describe('#imageThumbnail()', () => {
-  it('Should write the thumbnail of image URI to /tests/image/thumbnail.jpg', function() {
+  it('Should write the thumbnail of image URI to image/thumbnail.jpg', function() {
 
     const imageUrl = "https://azurecomcdn.azureedge.net/cvt-ada4056a687a0f024d478b2eba03524ad163dd9a6c0853326a5a71276dc4d3c6/images/shared/cognitive-services-demos/analyze-image/analyze-3-thumbnail.jpg"
 
@@ -113,7 +113,7 @@ describe('#imageThumbnail()', () => {
 
   })
 
-  it('Should write the thumbnail of image binary to /tests/image/thumbnail.jpg', function() {
+  it('Should write the thumbnail of image binary to image/thumbnail.jpg', function() {
 
     const fs = require('fs')
     const contentType = "application/octet-stream"
@@ -158,7 +158,7 @@ describe('#orcImage()', () => {
 
     const fs = require('fs')
     const contentType = "application/octet-stream"
-    return fs.readFile('/tests/image/orcTest.jpg', function(err, data) {
+    return fs.readFile('image/orcTest.jpg', function(err, data) {
       if (err) {
         throw err
       }
