@@ -198,7 +198,7 @@ describe('#recognizeDomainSpecificContent()', () => {
 
     const fs = require('fs')
     const contentType = "application/octet-stream"
-    return fs.readFile('/tests/image/RDSCTest.jpg', function(err, data) {
+    return fs.readFile('/image/RDSCTest.jpg', function(err, data) {
       if (err) {
         throw err
       }
