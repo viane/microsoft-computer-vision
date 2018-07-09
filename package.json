@@ -1,10 +1,10 @@
 {
   "name": "microsoft-computer-vision",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "author": "Xiaoyu Zhou <xiaoyuz2011@gmail.com>",
   "main": "./lib/index.js",
   "engines": {
-    "node": ">=5.0 <6.10",
+    "node": ">=5.0",
     "npm": ">=3.3"
   },
   "repository": {
