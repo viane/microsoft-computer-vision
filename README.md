@@ -23,6 +23,7 @@ This is a wrapper package for Microsoft Computer Vision APIs, it serves as regul
 
 - [Installation](#installation)
 - [Feature](#feature)
+- [Support Region](#supported-regions)
 - [API](#api)
 
   - [Analyze-Image](#analyze-image)
@@ -51,6 +52,31 @@ npm install microsoft-computer-vision --save
 - Easy function calls
 - Option of using different location of API to minimize responding time
 - Use new end point of **{location}.api.cognitive.microsoft.com/vision** instead of api.projectoxford.ai/vision
+- Support all available regions from Microsoft.
+
+<br>
+
+## Support-Regions
+
+Pass one of the following region into `request-origin` from method option.
+
+> * westus
+> * westus2
+> * eastus
+> * eastus2
+> * southcentralus
+> * westcentralus
+> * westeurope
+> * southeastasia
+> * canadacentral
+> * uksouth
+> * japaneast
+> * australiaeast
+> * brazilsouth
+> * centralindia
+> * eastasia
+> * northeurope
+> * westeurope
 
 <br>
 
@@ -71,8 +97,8 @@ Two input methods are supported -- (1) Uploading an image binray or (2) specifyi
 
 ```javascript
 {
-    "Ocp-Apim-Subscription-Key": "your subscription key",
-    "request-origin":"westus, eastus2, westcentralus, westeurope, southeastasia", // Required one only
+    "Ocp-Apim-Subscription-Key": "<your-subscription-key>",
+    "request-origin":"<Choose-one-from-Supported-Regions>", // Required one only
     "visual-features":"Categories,Tags,Description,Faces,ImageType,Color,Adult", // Can be at least one or more, separated by comma
     "details" : "Celebrities, Landmarks", // Optional, separated by comma
     "language" : "en" //or "cn", if not specified, "en" by default
@@ -88,8 +114,8 @@ Two input methods are supported -- (1) Uploading an image binray or (2) specifyi
 
 ```javascript
 analyzeImage({
-  "Ocp-Apim-Subscription-Key": "your subscription key",
-  "request-origin":"westus",
+  "Ocp-Apim-Subscription-Key": "<your-subscription-key>",
+  "request-origin":"<Choose-one-from-Supported-Regions>",
   "visual-features":"Tags, Faces, (...)",
   "content-type": "content type",
   "url": "image_url" //or "body": "image_binary"
@@ -98,7 +124,7 @@ analyzeImage({
   // the tags are now in the result
 
 }).catch((err)=>{
-  throw err;
+  throw err
 })
 ```
 
@@ -106,13 +132,13 @@ analyzeImage({
 
 ```javascript
 microsofComputerVision.analyzeImage({
-  "Ocp-Apim-Subscription-Key": "A_Key",
-  "request-origin":"westus",
+  "Ocp-Apim-Subscription-Key": "<your-subscription-key>",
+  "request-origin":"<Choose-one-from-Supported-Regions>",
   "content-type": "application/json",
   "url": "https://goo.gl/Hpz7gi",
   "visual-features":"Tags, Faces"
 }).then((result) => {
-     console.log(result);     // { tags:
+     console.log(result)     // { tags:
                               //  [ { name: 'tree', confidence: 0.9994124174118042 },
                               //    { name: 'outdoor', confidence: 0.9984000325202942 },
                               //    { name: 'sky', confidence: 0.9974111914634705 },
@@ -123,7 +149,7 @@ microsofComputerVision.analyzeImage({
                               // metadata: { width: 883, height: 589, format: 'Jpeg' },
                               // faces: [] }
 }).catch((err)=>{
-    throw err;
+    throw err
  })
 ```
 
@@ -132,19 +158,19 @@ microsofComputerVision.analyzeImage({
 ```javascript
 // Suppose you want get tag and face for /tests/image/test.jpg
 
-const microsofComputerVision = require("microsoft-computer-vision");
+const microsofComputerVision = require("microsoft-computer-vision")
 fs.readFile('./tests/image/test.jpg', function(err, data) {
     if (err)
-        throw err;
+        throw err
 
     microsofComputerVision.analyzeImage({
-      "Ocp-Apim-Subscription-Key": "A_Key",
-      "request-origin":"westus",
+      "Ocp-Apim-Subscription-Key": "<your-subscription-key>",
+      "request-origin":"<Choose-one-from-Supported-Regions>",
       "content-type": "application/octet-stream",
       "body": data,
       "visual-features":"Tags, Faces"
     }).then((result) => {
-        console.log(result);     
+        console.log(result)
                                  // { tags:
                                  //  [ { name: 'tree', confidence: 0.9994124174118042 },
                                  //    { name: 'outdoor', confidence: 0.9984000325202942 },
@@ -156,9 +182,9 @@ fs.readFile('./tests/image/test.jpg', function(err, data) {
                                  // metadata: { width: 883, height: 589, format: 'Jpeg' },
                                  // faces: [] }
     }).catch((err)=>{
-      throw err;
+      throw err
     })
-});
+})
 ```
 
 > Example of passing image by multipart/form-data
@@ -167,21 +193,21 @@ fs.readFile('./tests/image/test.jpg', function(err, data) {
 
 // here use multer as multipart/form-data handler
 
-const microsofComputerVision = require("microsoft-computer-vision");
-const myKey = "xxxxxxxxx";
-const path = require('path');
+const microsofComputerVision = require("microsoft-computer-vision")
+const myKey = "xxxxxxxxx"
+const path = require('path')
 const express = require('express')
 const app = express()
 const multer  = require('multer')
 const storage = multer.memoryStorage()
-const upload = multer({ storage: storage }).single('image');
+const upload = multer({ storage: storage }).single('image')
 
 app.post('/upload',  (req, res, next) => {
   upload(req, res, function (err) {
     if (err) {
       // An error occurred when uploading
-      console.log(err);
-      return;
+      console.log(err)
+      return
     }
 
     // Everything went fine
@@ -194,7 +220,7 @@ app.post('/upload',  (req, res, next) => {
     }).then((result) => {
         // do stuff with result
     }).catch((err)=>{
-      throw err;
+      throw err
     })
   })
 })
@@ -217,8 +243,8 @@ Two input methods are supported -- (1) Uploading an image binary or (2) specifyi
 
 ```javascript
 {
-    "Ocp-Apim-Subscription-Key": "your subscription key",
-    "request-origin":"westus, eastus2, westcentralus, westeurope, southeastasia", // Required one only
+    "Ocp-Apim-Subscription-Key": "<your-subscription-key>",
+    "request-origin":"<Choose-one-from-Supported-Regions>", // Required one only
     "content-type": "application/json",
     "url": "image_url"
           //or
@@ -231,8 +257,8 @@ Two input methods are supported -- (1) Uploading an image binary or (2) specifyi
 
 ```javascript
 tagImage({
-  "Ocp-Apim-Subscription-Key": "your subscription key",
-  "request-origin":"westus",
+  "Ocp-Apim-Subscription-Key": "<your-subscription-key>",
+  "request-origin":"<Choose-one-from-Supported-Regions>",
   "content-type": "content type",
   "url": "image_url" //or "body": "image_binary"
 }).then((result)=>{
@@ -240,21 +266,21 @@ tagImage({
   // the tags are now in the result
 
 }).catch((err)=>{
-  throw err;
+  throw err
 })
 ```
 
 > Example of passing image by URL
 
 ```javascript
-const microsofComputerVision = require("microsoft-computer-vision");
+const microsofComputerVision = require("microsoft-computer-vision")
 microsofComputerVision.tagImage({
-  "Ocp-Apim-Subscription-Key": "A_Key",
-  "request-origin":"westus",
+  "Ocp-Apim-Subscription-Key": "<your-subscription-key>",
+  "request-origin":"<Choose-one-from-Supported-Regions>",
   "content-type": "application/json",
   "url": "https://goo.gl/Hpz7gi"
 }).then((result)=>{
-  console.log(result);        // { tags:
+  console.log(result)        // { tags:
                               //  [ { name: 'tree', confidence: 0.9994124174118042 },
                               //    { name: 'outdoor', confidence: 0.9984000325202942 },
                               //    { name: 'sky', confidence: 0.9974111914634705 },
@@ -264,7 +290,7 @@ microsofComputerVision.tagImage({
                               // requestId: 'eaafdbce-fa0f-4395-9aa3-f09a6d8e1a62',
                               // metadata: { width: 883, height: 589, format: 'Jpeg' } }
 }).catch((err)=>{
-  throw err;
+  throw err
 })
 ```
 
@@ -273,17 +299,17 @@ microsofComputerVision.tagImage({
 ```javascript
 // Suppose you want get tag for /tests/image/test.jpg
 
-const microsofComputerVision = require("microsoft-computer-vision");
+const microsofComputerVision = require("microsoft-computer-vision")
 
 fs.readFile('./tests/image/test.jpg', function(err, data) {
     microsofComputerVision.tagImage({
-      "Ocp-Apim-Subscription-Key": "A_Key",
-      "request-origin":"westus",
+      "Ocp-Apim-Subscription-Key": "<your-subscription-key>",
+      "request-origin":"<Choose-one-from-Supported-Regions>",
       "content-type": "application/octet-stream",
       "body": data
     }).then((result) => {
 
-        console.log(result);        // { tags:
+        console.log(result)        // { tags:
                                     //  [ { name: 'tree', confidence: 0.9994124174118042 },
                                     //    { name: 'outdoor', confidence: 0.9984000325202942 },
                                     //    { name: 'sky', confidence: 0.9974111914634705 },
@@ -293,9 +319,9 @@ fs.readFile('./tests/image/test.jpg', function(err, data) {
                                     // requestId: 'eaafdbce-fa0f-4395-9aa3-f09a6d8e1a62',
                                     // metadata: { width: 883, height: 589, format: 'Jpeg' } }
     }).catch((err)=>{
-      throw err;
+      throw err
     })
-});
+})
 ```
 
 > Example of passing image by multipart/form-data
@@ -304,21 +330,21 @@ fs.readFile('./tests/image/test.jpg', function(err, data) {
 
 // here use multer as multipart/form-data handler
 
-const microsofComputerVision = require("microsoft-computer-vision");
-const myKey = "xxxxxxxxx";
-const path = require('path');
+const microsofComputerVision = require("microsoft-computer-vision")
+const myKey = "xxxxxxxxx"
+const path = require('path')
 const express = require('express')
 const app = express()
 const multer  = require('multer')
 const storage = multer.memoryStorage()
-const upload = multer({ storage: storage }).single('image');
+const upload = multer({ storage: storage }).single('image')
 
 app.post('/upload',  (req, res, next) => {
   upload(req, res, function (err) {
     if (err) {
       // An error occurred when uploading
-      console.log(err);
-      return;
+      console.log(err)
+      return
     }
 
     // Everything went fine
@@ -330,7 +356,7 @@ app.post('/upload',  (req, res, next) => {
     }).then((result) => {
         // do stuff with result
     }).catch((err)=>{
-      throw err;
+      throw err
     })
   })
 })
@@ -353,8 +379,8 @@ Two input methods are supported -- (1) Uploading an image binary or (2) specifyi
 
 ```javascript
 {
-    "Ocp-Apim-Subscription-Key": "your subscription key",
-    "request-origin":"westus, eastus2, westcentralus, westeurope, southeastasia", // Required one only
+    "Ocp-Apim-Subscription-Key": "<your-subscription-key>",
+    "request-origin":"<Choose-one-from-Supported-Regions>", // Required one only
     "max-candidates":"1", // if not specified, library use 10 by default
     "content-type": "application/json",
     "url": "image_url"
@@ -368,8 +394,8 @@ Two input methods are supported -- (1) Uploading an image binary or (2) specifyi
 
 ```javascript
 describeImage({
-  "Ocp-Apim-Subscription-Key": "your subscription key",
-  "request-origin":"westus",
+  "Ocp-Apim-Subscription-Key": "<your-subscription-key>",
+  "request-origin":"<Choose-one-from-Supported-Regions>",
   "max-candidates":"1",
   "content-type": "content type",
   "url": "image_url" //or "body": "image_binary"
@@ -378,22 +404,22 @@ describeImage({
   // the tags are now in the result
 
 }).catch((err)=>{
-  throw err;
+  throw err
 })
 ```
 
 > Example of passing image by URL
 
 ```javascript
-const microsofComputerVision = require("microsoft-computer-vision");
+const microsofComputerVision = require("microsoft-computer-vision")
 microsofComputerVision.describeImage({
-  "Ocp-Apim-Subscription-Key": "A_Key",
-  "request-origin":"westus",
+  "Ocp-Apim-Subscription-Key": "<your-subscription-key>",
+  "request-origin":"<Choose-one-from-Supported-Regions>",
   "max-candidates":"1",
   "content-type": "application/json",
   "url": "https://goo.gl/Hpz7gi"
 }).then((result)=>{
-  console.log(result);      // {
+  console.log(result)      // {
                             // "description": {
                             //     "tags": [
                             //         "outdoor",
@@ -421,7 +447,7 @@ microsofComputerVision.describeImage({
                             //     "format": "Jpeg"
                             // }
 }).catch((err)=>{
-  throw err;
+  throw err
 })
 ```
 
@@ -430,17 +456,17 @@ microsofComputerVision.describeImage({
 ```javascript
 // Suppose you want get description for /tests/image/test.jpg
 
-const microsofComputerVision = require("microsoft-computer-vision");
+const microsofComputerVision = require("microsoft-computer-vision")
 
 fs.readFile('./tests/image/test.jpg', function(err, data) {
     microsofComputerVision.describeImage({
-      "Ocp-Apim-Subscription-Key": "A_Key",
-      "request-origin":"westus",
+      "Ocp-Apim-Subscription-Key": "<your-subscription-key>",
+      "request-origin":"<Choose-one-from-Supported-Regions>",
       "max-candidates":"1",
       "content-type": "application/octet-stream",
       "body": data
     }).then((result) => {
-        console.log(result);      // {
+        console.log(result)      // {
                                   // "description": {
                                   //     "tags": [
                                   //         "outdoor",
@@ -469,9 +495,9 @@ fs.readFile('./tests/image/test.jpg', function(err, data) {
                                   // }
   }
     }).catch((err)=>{
-      throw err;
+      throw err
     })
-});
+})
 ```
 
 > Example of passing image by multipart/form-data
@@ -480,21 +506,21 @@ fs.readFile('./tests/image/test.jpg', function(err, data) {
 
 // here use multer as multipart/form-data handler
 
-const microsofComputerVision = require("microsoft-computer-vision");
-const myKey = "xxxxxxxxx";
-const path = require('path');
+const microsofComputerVision = require("microsoft-computer-vision")
+const myKey = "xxxxxxxxx"
+const path = require('path')
 const express = require('express')
 const app = express()
 const multer  = require('multer')
 const storage = multer.memoryStorage()
-const upload = multer({ storage: storage }).single('image');
+const upload = multer({ storage: storage }).single('image')
 
 app.post('/upload',  (req, res, next) => {
   upload(req, res, function (err) {
     if (err) {
       // An error occurred when uploading
-      console.log(err);
-      return;
+      console.log(err)
+      return
     }
 
     // Everything went fine
@@ -507,7 +533,7 @@ app.post('/upload',  (req, res, next) => {
     }).then((result) => {
         // do stuff with result
     }).catch((err)=>{
-      throw err;
+      throw err
     })
   })
 })
@@ -530,8 +556,8 @@ A successful response contains the thumbnail image binary. If the request failed
 
 ```javascript
 {
-    "Ocp-Apim-Subscription-Key": "A_Key",
-    "request-origin":"westus, eastus2, westcentralus, westeurope, southeastasia", // Required one only
+    "Ocp-Apim-Subscription-Key": "<your-subscription-key>",
+    "request-origin":"<Choose-one-from-Supported-Regions>", // Required one only
     "width": "100",
     "height": "100",
     "smart-cropping": true // optional
@@ -547,8 +573,8 @@ A successful response contains the thumbnail image binary. If the request failed
 
 ```javascript
 imageThumbnail({
-  "Ocp-Apim-Subscription-Key": "A_Key",
-  "request-origin":"westus",
+  "Ocp-Apim-Subscription-Key": "<your-subscription-key>",
+  "request-origin":"<Choose-one-from-Supported-Regions>",
   "width": "100",
   "height": "100",
   "smart-cropping": true
@@ -559,17 +585,17 @@ imageThumbnail({
   // the tags are now in the result
 
 }).catch((err)=>{
-  throw err;
+  throw err
 })
 ```
 
 > Example of passing image by URL
 
 ```javascript
-const microsofComputerVision = require("microsoft-computer-vision");
+const microsofComputerVision = require("microsoft-computer-vision")
 microsofComputerVision.imageThumbnail({
-  "Ocp-Apim-Subscription-Key": "A_Key",
-  "request-origin":"westus",
+  "Ocp-Apim-Subscription-Key": "<your-subscription-key>",
+  "request-origin":"<Choose-one-from-Supported-Regions>",
   "width": "100",
   "height": "100",
   "smart-cropping": true
@@ -582,7 +608,7 @@ microsofComputerVision.imageThumbnail({
             throw err
     })
 }).catch((err)=>{
-  throw err;
+  throw err
 })
 ```
 
@@ -591,12 +617,12 @@ microsofComputerVision.imageThumbnail({
 ```javascript
 // Suppose you want get a 100x100 thumbnail for /tests/image/test.jpg
 
-const microsofComputerVision = require("microsoft-computer-vision");
+const microsofComputerVision = require("microsoft-computer-vision")
 
 fs.readFile('./tests/image/test.jpg', function(err, data) {
     microsofComputerVision.imageThumbnail({
-      "Ocp-Apim-Subscription-Key": "A_Key",
-      "request-origin":"westus",
+      "Ocp-Apim-Subscription-Key": "<your-subscription-key>",
+      "request-origin":"<Choose-one-from-Supported-Regions>",
       "width": "100",
       "height": "100",
       "smart-cropping": true
@@ -610,9 +636,9 @@ fs.readFile('./tests/image/test.jpg', function(err, data) {
       })
   }
     }).catch((err)=>{
-      throw err;
+      throw err
     })
-});
+})
 ```
 
 > Example of passing image by multipart/form-data
@@ -621,21 +647,21 @@ fs.readFile('./tests/image/test.jpg', function(err, data) {
 
 // here use multer as multipart/form-data handler
 
-const microsofComputerVision = require("microsoft-computer-vision");
-const myKey = "xxxxxxxxx";
-const path = require('path');
+const microsofComputerVision = require("microsoft-computer-vision")
+const myKey = "xxxxxxxxx"
+const path = require('path')
 const express = require('express')
 const app = express()
 const multer  = require('multer')
 const storage = multer.memoryStorage()
-const upload = multer({ storage: storage }).single('image');
+const upload = multer({ storage: storage }).single('image')
 
 app.post('/upload',  (req, res, next) => {
   upload(req, res, function (err) {
     if (err) {
       // An error occurred when uploading
-      console.log(err);
-      return;
+      console.log(err)
+      return
     }
 
     // Everything went fine
@@ -650,7 +676,7 @@ app.post('/upload',  (req, res, next) => {
     }).then((result) => {
         // do stuff with result
     }).catch((err)=>{
-      throw err;
+      throw err
     })
   })
 })
@@ -675,8 +701,8 @@ Two input methods are supported -- (1) Uploading an image binary or (2) specifyi
 
 ```javascript
 {
-    "Ocp-Apim-Subscription-Key": "A_Key",
-    "request-origin":"westus, eastus2, westcentralus, westeurope, southeastasia", // Required one only
+    "Ocp-Apim-Subscription-Key": "<your-subscription-key>",
+    "request-origin":"<Choose-one-from-Supported-Regions>", // Required one only
     "content-type": "application/json",
     "url": "image_url",
     "language": "{language}", // Can be one of the following
@@ -710,8 +736,8 @@ Two input methods are supported -- (1) Uploading an image binary or (2) specifyi
 
 ```javascript
 orcImage({
-    "Ocp-Apim-Subscription-Key": "A_Key",
-    "request-origin":"westus",
+    "Ocp-Apim-Subscription-Key": "<your-subscription-key>",
+    "request-origin":"<Choose-one-from-Supported-Regions>",
     "content-type": "application/json",
     "url": "image_url",
     "language": "{language}",
@@ -719,24 +745,24 @@ orcImage({
 }).then((result)=>{
     // ORC are now in the result
 }).catch((err)=>{
-  throw err;
+  throw err
 })
 ```
 
 > Example of passing image by URL
 
 ```javascript
-const microsofComputerVision = require("microsoft-computer-vision");
+const microsofComputerVision = require("microsoft-computer-vision")
 microsofComputerVision.orcImage({
-    "Ocp-Apim-Subscription-Key": "A_Key",
-    "request-origin":"westus",
+    "Ocp-Apim-Subscription-Key": "<your-subscription-key>",
+    "request-origin":"<Choose-one-from-Supported-Regions>",
     "content-type": "application/json",
     "url": "http://cdn.quotesgram.com/img/81/49/660235022-Random-Funny-Quotes-.jpg",
     "language": "en",
     "detect-orientation": true
 }).then((result)=>{
 
-  console.log(JSON.stringify(result));        // {
+  console.log(JSON.stringify(result))        // {
                               //     "language": "en",
                               //     "textAngle": 0,
                               //     "orientation": "Up",
@@ -763,7 +789,7 @@ microsofComputerVision.orcImage({
                               //     ]
                               // }
 }).catch((err)=>{
-  throw err;
+  throw err
 })
 ```
 
@@ -772,18 +798,18 @@ microsofComputerVision.orcImage({
 ```javascript
 // Suppose you want get ORC analysis for /tests/image/orcTest.jpg
 
-const microsofComputerVision = require("microsoft-computer-vision");
+const microsofComputerVision = require("microsoft-computer-vision")
 
 fs.readFile('./tests/image/orcTest.jpg', function(err, data) {
     microsofComputerVision.orcImage({
-      "Ocp-Apim-Subscription-Key": "A_Key",
-      "request-origin":"westus",
+      "Ocp-Apim-Subscription-Key": "<your-subscription-key>",
+      "request-origin":"<Choose-one-from-Supported-Regions>",
       "language": "en",
       "detect-orientation": true,
       "content-type": "application/octet-stream",
       "body": data
     }).then((result) => {
-      console.log(JSON.stringify(result));        // {
+      console.log(JSON.stringify(result))        // {
                                   //     "language": "en",
                                   //     "textAngle": 0,
                                   //     "orientation": "Up",
@@ -811,9 +837,9 @@ fs.readFile('./tests/image/orcTest.jpg', function(err, data) {
                                   // }
   }
     }).catch((err)=>{
-      throw err;
+      throw err
     })
-});
+})
 ```
 
 > Example of passing image by multipart/form-data
@@ -822,21 +848,21 @@ fs.readFile('./tests/image/orcTest.jpg', function(err, data) {
 
 // here use multer as multipart/form-data handler
 
-const microsofComputerVision = require("microsoft-computer-vision");
-const myKey = "xxxxxxxxx";
-const path = require('path');
+const microsofComputerVision = require("microsoft-computer-vision")
+const myKey = "xxxxxxxxx"
+const path = require('path')
 const express = require('express')
 const app = express()
 const multer  = require('multer')
 const storage = multer.memoryStorage()
-const upload = multer({ storage: storage }).single('image');
+const upload = multer({ storage: storage }).single('image')
 
 app.post('/upload',  (req, res, next) => {
   upload(req, res, function (err) {
     if (err) {
       // An error occurred when uploading
-      console.log(err);
-      return;
+      console.log(err)
+      return
     }
 
     // Everything went fine
@@ -848,7 +874,7 @@ app.post('/upload',  (req, res, next) => {
     }).then((result) => {
         // do stuff with result
     }).catch((err)=>{
-      throw err;
+      throw err
     })
   })
 })
@@ -870,7 +896,7 @@ TThis operation returns the list of domain-specific models that are supported by
 ```javascript
   {
     "Ocp-Apim-Subscription-Key": "A_Key"
-    "request-origin":"westus, eastus2, westcentralus, westeurope, southeastasia", // Required one only
+    "request-origin":"<Choose-one-from-Supported-Regions>", // Required one only
   }
 ```
 
@@ -878,25 +904,25 @@ TThis operation returns the list of domain-specific models that are supported by
 
 ```javascript
 listDomainSpecificModels({
-    "Ocp-Apim-Subscription-Key": "A_Key",
+    "Ocp-Apim-Subscription-Key": "<your-subscription-key>",
     "request-origin":"westus"
 }).then((result)=>{
     // Domain content are now in the result
 }).catch((err)=>{
-  throw err;
+  throw err
 })
 ```
 
 > Example of getting List Domain Specific Models
 
 ```javascript
-const microsofComputerVision = require("microsoft-computer-vision");
+const microsofComputerVision = require("microsoft-computer-vision")
 microsofComputerVision.listDomainSpecificModels({
-    "Ocp-Apim-Subscription-Key": "A_Key",
+    "Ocp-Apim-Subscription-Key": "<your-subscription-key>",
     "request-origin":"westus"
 }).then((result)=>{
 
-  console.log(JSON.stringify(result));        // {
+  console.log(JSON.stringify(result))        // {
                                               //   "models": [
                                               //       {
                                               //           "name": "celebrities",
@@ -908,7 +934,7 @@ microsofComputerVision.listDomainSpecificModels({
                                               //   "requestId": "980399d9-c520-49b6-bf29-bbe30aae515e"
                                               // }
 }).catch((err)=>{
-  throw err;
+  throw err
 })
 ```
 
@@ -929,8 +955,8 @@ Two input methods are supported -- (1) Uploading an image binary or (2) specifyi
 
 ```javascript
 {
-    "Ocp-Apim-Subscription-Key": "A_Key",
-    "request-origin":"westus, eastus2, westcentralus, westeurope, southeastasia", // Required one only
+    "Ocp-Apim-Subscription-Key": "<your-subscription-key>",
+    "request-origin":"<Choose-one-from-Supported-Regions>", // Required one only
     "content-type": "application/json",
     "url": "image_url",
     "model": "{model}" // use listDomainSpecificModels() to get current available models
@@ -941,31 +967,31 @@ Two input methods are supported -- (1) Uploading an image binary or (2) specifyi
 
 ```javascript
 recognizeDomainSpecificContent({
-    "Ocp-Apim-Subscription-Key": "A_Key",
-    "request-origin":"westus",
+    "Ocp-Apim-Subscription-Key": "<your-subscription-key>",
+    "request-origin":"<Choose-one-from-Supported-Regions>",
     "content-type": "application/json",
     "url": "image_url",
     "model": "{model}"
 }).then((result)=>{
     // Domain content are now in the result
 }).catch((err)=>{
-  throw err;
+  throw err
 })
 ```
 
 > Example of passing image by URL
 
 ```javascript
-const microsofComputerVision = require("microsoft-computer-vision");
+const microsofComputerVision = require("microsoft-computer-vision")
 microsofComputerVision.recognizeDomainSpecificContent({
-    "Ocp-Apim-Subscription-Key": "A_Key",
-    "request-origin":"westus",
+    "Ocp-Apim-Subscription-Key": "<your-subscription-key>",
+    "request-origin":"<Choose-one-from-Supported-Regions>",
     "content-type": "application/json",
     "url": "http://d.ibtimes.co.uk/en/full/377533/bill-gates.jpg",
     "model": "celebrities"
 }).then((result)=>{
 
-  console.log(JSON.stringify(result));      //   {
+  console.log(JSON.stringify(result))      //   {
                                             //     "requestId": "055c5645-3ec0-4dc9-9da8-98d62a28a7c2",
                                             //     "metadata": {
                                             //         "width": 620,
@@ -988,7 +1014,7 @@ microsofComputerVision.recognizeDomainSpecificContent({
                                             //     }
                                             // }
 }).catch((err)=>{
-  throw err;
+  throw err
 })
 ```
 
@@ -997,17 +1023,17 @@ microsofComputerVision.recognizeDomainSpecificContent({
 ```javascript
 // Suppose you want get model in /tests/image/RDSCTest.jpg
 
-const microsofComputerVision = require("microsoft-computer-vision");
+const microsofComputerVision = require("microsoft-computer-vision")
 
 fs.readFile('/tests/image/RDSCTest.jpg', function(err, data) {
     microsofComputerVision.recognizeDomainSpecificContent({
-      "Ocp-Apim-Subscription-Key": "A_Key",
-      "request-origin":"westus",
+      "Ocp-Apim-Subscription-Key": "<your-subscription-key>",
+      "request-origin":"<Choose-one-from-Supported-Regions>",
       "model": "celebrities",
       "content-type": "application/octet-stream",
       "body": data
     }).then((result) => {
-      console.log(JSON.stringify(result));      //   {
+      console.log(JSON.stringify(result))      //   {
                                                 //     "requestId": "055c5645-3ec0-4dc9-9da8-98d62a28a7c2",
                                                 //     "metadata": {
                                                 //         "width": 620,
@@ -1031,9 +1057,9 @@ fs.readFile('/tests/image/RDSCTest.jpg', function(err, data) {
                                                 // }
   }
     }).catch((err)=>{
-      throw err;
+      throw err
     })
-});
+})
 ```
 
 > Example of passing image by multipart/form-data
@@ -1042,21 +1068,21 @@ fs.readFile('/tests/image/RDSCTest.jpg', function(err, data) {
 
 // here use multer as multipart/form-data handler
 
-const microsofComputerVision = require("microsoft-computer-vision");
-const myKey = "xxxxxxxxx";
-const path = require('path');
+const microsofComputerVision = require("microsoft-computer-vision")
+const myKey = "xxxxxxxxx"
+const path = require('path')
 const express = require('express')
 const app = express()
 const multer  = require('multer')
 const storage = multer.memoryStorage()
-const upload = multer({ storage: storage }).single('image');
+const upload = multer({ storage: storage }).single('image')
 
 app.post('/upload',  (req, res, next) => {
   upload(req, res, function (err) {
     if (err) {
       // An error occurred when uploading
-      console.log(err);
-      return;
+      console.log(err)
+      return
     }
 
     // Everything went fine
@@ -1069,7 +1095,7 @@ app.post('/upload',  (req, res, next) => {
     }).then((result) => {
         // do stuff with result
     }).catch((err)=>{
-      throw err;
+      throw err
     })
   })
 })
