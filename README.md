@@ -9,7 +9,7 @@
 [![Build Status](https://travis-ci.org/viane/microsoft-computer-vision.svg?branch=master)](https://travis-ci.org/viane/microsoft-computer-vision)
 [![NSP Status](https://nodesecurity.io/orgs/open-source-library/projects/647c9121-e7ec-46ac-8369-afd7e1ebf21a/badge)](https://nodesecurity.io/orgs/open-source-library/projects/647c9121-e7ec-46ac-8369-afd7e1ebf21a)
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/viane/microsoft-computer-vision/master/LICENSE)
-
+[![Build status](https://ci.appveyor.com/api/projects/status/6dc257xr1vmx5wpl?svg=true)](https://ci.appveyor.com/project/viane/microsoft-computer-vision)
 
 [![NPM](https://nodei.co/npm/microsoft-computer-vision.png?downloads=true&downloadRank=true)](https://nodei.co/npm/microsoft-computer-vision/)
 
